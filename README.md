@@ -8,8 +8,8 @@
 
 [![Total Downloads](https://poser.pugx.org/yii-extension/user-view-bootstrap5/downloads.png)](https://packagist.org/packages/yii-extension/user-view-bootstrap5)
 [![Build Status](https://github.com/yii-extension/user-view-bootstrap5/workflows/build/badge.svg)](https://github.com/yii-extension/user-view-bootstrap5/actions?query=workflow%3Abuild)
-[![codecov](https://codecov.io/gh/yii-extension/user-view-bootstrap5/branch/main/graph/badge.svg?token=KB6T5KMGED)](https://codecov.io/gh/yii-extension/user-view-bootstrap5)
 [![static analysis](https://github.com/yii-extension/user-view-bootstrap5/workflows/static%20analysis/badge.svg)](https://github.com/yii-extension/user-view-bootstrap5/actions?query=workflow%3A%22static+analysis%22)
+[![type-coverage](https://shepherd.dev/github/yii-extension/user-view-bootstrap5/coverage.svg)](https://shepherd.dev/github/yii-extension/user-view-bootstrap5)
 
 
 ## Installation
