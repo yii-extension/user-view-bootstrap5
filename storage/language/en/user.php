@@ -15,7 +15,7 @@ return [
     'Please fill out the following' => 'Please fill out the following.',
     'Register' => 'Register',
     'Resend confirmation message' => 'Resend confirmation message.',
-    'Sing in' => 'Sing in.',
+    'Sign in' => 'Sign in.',
     'Sign up' => 'Sign up.',
     'The above error occurred while the Web server was processing your request' => 'The above error occurred while the Web server was processing your request.',
     'The page' => 'The page',

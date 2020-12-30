@@ -16,16 +16,6 @@ return [
         ]
     ],
 
-    'yiisoft/form' => [
-        'fieldConfig' => [
-            'errorCssClass()' => ['is-danger'],
-            'errorOptions()' => [['class' => 'help is-danger has-text-left mt-0 mb-2']],
-            'inputCssClass()' => ['input field mb-1'],
-            'labelOptions()' => [['label' => '']],
-            'successCssClass()' => ['is-success'],
-        ],
-    ],
-
     'yiisoft/i18n' => [
         'locale' => 'en'
     ],
