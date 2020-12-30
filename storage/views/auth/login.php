@@ -35,7 +35,7 @@ $assetManager->register([
 ?>
 
 <p class="title form-security-login-title">
-    <?= $translator->translate('Sing in') ?>
+    <?= $translator->translate('Sign in') ?>
 </p>
 
 <p class="subtitle form-security-login-subtitle ">

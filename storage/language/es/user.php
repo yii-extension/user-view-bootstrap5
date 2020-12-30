@@ -17,7 +17,7 @@ return [
     'Please fill out the following' => 'Por favor complete lo siguiente.',
     'Register' => 'Registrarse',
     'Resend confirmation message' => 'Reenviar mensaje de confirmación.',
-    'Sing in' => 'Iniciar session.',
+    'Sign in' => 'Iniciar session.',
     'Sign up' => 'Registrate.',
     'The above error occurred while the Web server was processing your request' => 'El error anterior ocurrió mientras el servidor web procesaba su solicitud.',
     'The page' => 'La página',
