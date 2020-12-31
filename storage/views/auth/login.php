@@ -34,9 +34,9 @@ $assetManager->register([
 
 ?>
 
-<p class="title form-security-login-title">
+<h1 class="title form-security-login-title">
     <?= $translator->translate('Sign in') ?>
-</p>
+</h1>
 
 <p class="subtitle form-security-login-subtitle ">
     <?= $translator->translate('Please fill out the following') ?>
@@ -61,7 +61,7 @@ $assetManager->register([
             ->textInput(
                 [
                     'autofocus' => true,
-                    'placeholder' => $translator->translate('Username'),
+#                    'placeholder' => $translator->translate('Username'),
                     'tabindex' => '1'
                     ]
             ) ?>
@@ -69,7 +69,7 @@ $assetManager->register([
         <?= $field->config($data, 'password')
             ->passwordInput(
                 [
-                    'placeholder' => $translator->translate('Password'),
+#                    'placeholder' => $translator->translate('Password'),
                     'tabindex' => '2'
                 ]
             ) ?>
