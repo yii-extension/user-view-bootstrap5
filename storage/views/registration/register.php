@@ -33,9 +33,9 @@ $assetManager->register([
 
 ?>
 
-<p class="title form-registration-register-title">
+<h1 class="title form-registration-register-title">
     <?= $translator->translate('Register') . '.' ?>
-</p>
+</h1>
 
 <p class="subtitle form-registration-register-subtitle">
     <?= $translator->translate('Please fill out the following') ?>
@@ -59,7 +59,6 @@ $assetManager->register([
         <?= $field->config($data, 'email')
             ->textInput(
                 [
-                    'placeholder' => $translator->translate('Email'),
                     'tabindex' => '1'
                 ]
             ) ?>
@@ -67,7 +66,6 @@ $assetManager->register([
         <?= $field->config($data, 'username')
             ->textInput(
                 [
-                    'placeholder' => $translator->translate('Username'),
                     'tabindex' => '2'
                 ]
             ) ?>
@@ -76,7 +74,6 @@ $assetManager->register([
             <?= $field->config($data, 'password')
                 ->passwordInput(
                     [
-                        'placeholder' => $translator->translate('Password'),
                         'tabindex' => '3'
                     ]
                 ) ?>
