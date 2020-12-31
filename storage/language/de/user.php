@@ -18,4 +18,5 @@ return [
     'Sign up' => 'Registrieren',
     'The above error occurred while the Web server was processing your request.' => 'Der obige Fehler ist aufgetreten, während der Webserver Ihre Anfrage verarbeitet hat.',
     'The page %s was not found.' => 'Die Seite %s wurde nicht gefunden.',
+    'Username' => 'Benutzername',
 ];
