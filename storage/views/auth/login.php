@@ -61,7 +61,6 @@ $assetManager->register([
             ->textInput(
                 [
                     'autofocus' => true,
-#                    'placeholder' => $translator->translate('Username'),
                     'tabindex' => '1'
                     ]
             ) ?>
@@ -69,7 +68,6 @@ $assetManager->register([
         <?= $field->config($data, 'password')
             ->passwordInput(
                 [
-#                    'placeholder' => $translator->translate('Password'),
                     'tabindex' => '2'
                 ]
             ) ?>
