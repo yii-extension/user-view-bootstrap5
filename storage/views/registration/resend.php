@@ -37,12 +37,6 @@ $assetManager->register([
     <?= $translator->translate('Resend confirmation message') ?>
 </h1>
 
-<p class="subtitle form-registration-resend-subtitle">
-    <?= $translator->translate('Please fill out the following') ?>
-</p>
-
-<hr class='mb-2'/>
-
 <div class = 'form-registration-resend'>
 
     <?= Form::widget()
@@ -75,10 +69,10 @@ $assetManager->register([
 
     <?php Form::end(); ?>
 
-    <hr class='mb-2'/>
+    <hr>
 
     <?php if ($settings->isRegister()) : ?>
-        <p class = 'text-center'>
+        <p class='text-center'>
             <?= Html::a(
                 $translator->translate("Don't have an account - Sign up!"),
                 $urlGenerator->generate('register'),
@@ -87,7 +81,7 @@ $assetManager->register([
         </p>
     <?php endif ?>
 
-    <p class = 'mt-3 text-center'>
+    <p class='text-center'>
         <?= Html::a(
             $translator->translate('Already registered - Sign in!'),
             $urlGenerator->generate('login'),
