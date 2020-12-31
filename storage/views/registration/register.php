@@ -37,12 +37,6 @@ $assetManager->register([
     <?= $translator->translate('Register') . '.' ?>
 </h1>
 
-<p class="subtitle form-registration-register-subtitle">
-    <?= $translator->translate('Please fill out the following') ?>
-</p>
-
-<hr class='mb-2'/>
-
 <div class = 'form-registration-register'>
 
     <?= Form::widget()
@@ -89,10 +83,9 @@ $assetManager->register([
             ['class' => 'd-grid gap-2']
         ) ?>
 
+        <hr>
 
-        <hr class='mb-2'/>
-
-        <div class = 'text-center pt-3'>
+        <div class = 'text-center'>
             <?= Html::a(
                 $translator->translate('Already registered - Sign in!'),
                 $urlGenerator->generate('login'),
