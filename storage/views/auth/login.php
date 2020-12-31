@@ -38,12 +38,6 @@ $assetManager->register([
     <?= $translator->translate('Sign in') ?>
 </h1>
 
-<p class="subtitle form-security-login-subtitle ">
-    <?= $translator->translate('Please fill out the following') ?>
-</p>
-
-<hr class='mb-2'/>
-
 <div class = 'form-security-login'>
 
     <?= Form::widget()
@@ -87,8 +81,10 @@ $assetManager->register([
 
     <?= Form::end() ?>
 
+    <hr>
+
     <?php if ($setting->isPasswordRecovery() === true) : ?>
-        <p class = 'has-text-grey has-margin-top-10'>
+        <p>
             <?= Html::a(
                 $translator->translate('Forgot Password'),
                 '#', /*$url->generate('recovery/request'), */
@@ -98,7 +94,7 @@ $assetManager->register([
     <?php endif ?>
 
     <?php if ($setting->isConfirmation() === true) : ?>
-        <p class = 'has-text-grey'>
+        <p>
             <?= Html::a(
                 $translator->translate("Didn't receive confirmation message"),
                 $urlGenerator->generate('resend'),
