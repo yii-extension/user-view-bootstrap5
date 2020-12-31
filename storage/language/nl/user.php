@@ -18,4 +18,5 @@ return [
     'Sign up' => 'Aanmelden',
     'The above error occurred while the Web server was processing your request.' => 'De bovenstaande fout is opgetreden tijdens het verwerken van je aanvraag.',
     'The page %s was not found.' => 'De pagina %s kon niet worden gevonden.',
+    'Username' => 'Gebruikersnaam',
 ];
