@@ -60,6 +60,7 @@ $assetManager->register([
         <?= $field->config($data, 'login')
             ->textInput(
                 [
+                    'autofocus' => true,
                     'placeholder' => $translator->translate('Username'),
                     'tabindex' => '1'
                     ]
