@@ -33,9 +33,9 @@ $assetManager->register([
 
 ?>
 
-<p class="title form-registration-resend-title">
+<h1 class="title form-registration-resend-title">
     <?= $translator->translate('Resend confirmation message') ?>
-</p>
+</h1>
 
 <p class="subtitle form-registration-resend-subtitle">
     <?= $translator->translate('Please fill out the following') ?>
@@ -59,7 +59,6 @@ $assetManager->register([
         <?= $field->config($data, 'email')
             ->textInput(
                 [
-                    'placeholder' => $translator->translate('email'),
                     'tabindex' => '1'
                 ]
             ) ?>
