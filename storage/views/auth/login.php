@@ -76,8 +76,8 @@ $assetManager->register([
 
         <?= Html::div(
             Html::submitButton(
-                $translator->translate('Login') . ' ' .
-                html::tag('i', '', ['class' => 'bi bi-box-arrow-in-right', 'aria-hidden' => 'true']),
+                $translator->translate('Login') .
+                html::tag('i', '', ['class' => 'bi bi-box-arrow-in-right ms-2', 'aria-hidden' => 'true']),
                 [
                     'class' => 'btn btn-primary btn-lg mt-3',
                     'id' => 'login-button',
@@ -93,7 +93,7 @@ $assetManager->register([
         <p class = 'has-text-grey has-margin-top-10'>
             <?= Html::a(
                 $translator->translate('Forgot Password'),
-                /*$url->generate('recovery/request'), */
+                '#', /*$url->generate('recovery/request'), */
                 ['tabindex' => '4'],
             ) ?>
         </p>
