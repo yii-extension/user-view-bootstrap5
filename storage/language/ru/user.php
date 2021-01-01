@@ -12,7 +12,7 @@ return [
     "Don't have an account - Sign up!" => "Нет учетной записи - Регистрация!",
     "Didn't receive confirmation message" => "Не получил подтверждающее сообщение",
     'Email' => 'Эл. адрес',
-    'Forgot Password' => 'Забыли пароль',
+    'Forgot password' => 'Забыли пароль',
     'Go Back Home' => 'Вернуться Главная',
     'Login' => 'Vходить',
     'Password' => 'Пароль',

@@ -8,7 +8,7 @@ return [
     "Don't have an account - Sign up!" => 'No tienes una cuenta - ¡Regístrate!',
     "Didn't receive confirmation message" => 'No recibí el mensaje de confirmación',
     'Email' => 'Correo electrónico',
-    'Forgot Password' => 'Recupera tu contraseña',
+    'Forgot password' => 'Recupera tu contraseña',
     'Go Back Home' => 'Regresar a la pagina de inicio',
     'Login' => 'Iniciar session',
     'Password' => 'Contraseña',

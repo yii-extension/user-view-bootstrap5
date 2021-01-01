@@ -8,7 +8,7 @@ return [
     "Don't have an account - Sign up!" => "Nog geen account - Registreren!",
     "Didn't receive confirmation message" => "Bevestigingsmail niet ontvangen",
     'Email' => 'E-mail Adres',
-    'Forgot Password' => 'Wachtwoord Vergeten',
+    'Forgot password' => 'Wachtwoord vergeten',
     'Go Back Home' => 'Terug naar Home',
     'Login' => 'Login',
     'Password' => 'Wachtwoord',

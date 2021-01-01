@@ -80,7 +80,7 @@ $assetManager->register([
     <?php if ($setting->isPasswordRecovery()) : ?>
         <p class="text-center">
             <?= Html::a(
-                $translator->translate('Recovery your password'),
+                $translator->translate('Forgot password'),
                 $urlGenerator->generate('request'),
                 ['tabindex' => '4'],
             ) ?>
