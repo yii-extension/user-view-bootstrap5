@@ -10,6 +10,7 @@ use Yiisoft\Form\Widget\Field;
 use Yiisoft\Form\Widget\Form;
 use Yiisoft\Html\Html;
 use Yiisoft\I18n\Locale;
+use Yiisoft\Translator\Message\Php\MessageSource;
 use Yiisoft\View\WebView;
 
 /**
@@ -23,6 +24,7 @@ use Yiisoft\View\WebView;
  * @var string $linkResend
  * @var Locale $locale
  * @var WebView $this
+ * @var MessageSource $translator
  */
 
 $this->setTitle('Login');
