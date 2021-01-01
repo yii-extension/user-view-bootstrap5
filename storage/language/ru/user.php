@@ -3,9 +3,9 @@
 declare(strict_types=1);
 
 return [
-    'Already registered - Sign in!' => 'Уже зарегистрированы - Авторизуйтесь!',
+    'Already registered - Sign in!' => 'Уже зарегистрированы - Vходить!',
     'Continue' => 'Продолжить',
-    "Don't have an account - Sign up!" => "Нет учетной записи - Зарегистрируйтесь!",
+    "Don't have an account - Sign up!" => "Нет учетной записи - Регистрация!",
     "Didn't receive confirmation message" => "Не получил подтверждающее сообщение",
     'Email' => 'Эл. адрес',
     'Forgot Password' => 'Забыли пароль',

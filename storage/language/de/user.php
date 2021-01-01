@@ -5,7 +5,7 @@ declare(strict_types=1);
 return [
     'Already registered - Sign in!' => 'Bereits registriert - Anmelden!',
     'Continue' => 'Fortsetzen',
-    "Don't have an account - Sign up!" => "Kein Konto - Melde dich an!",
+    "Don't have an account - Sign up!" => "Kein Konto - Registrieren!",
     "Didn't receive confirmation message" => "Bestätigungsnachricht nicht erhalten",
     'Email' => 'E-Mail-Addresse',
     'Forgot Password' => 'Passwort vergessen',
