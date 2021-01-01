@@ -90,7 +90,7 @@ $assetManager->register([
     <p class="text-center">
         <?= Html::a(
             $translator->translate('Don\'t have an account - Sign up!'),
-            $url->generate('register'),
+            $urlGenerator->generate('register'),
             ['tabindex' => '5'],
         ) ?>
     </p>
