@@ -3,15 +3,14 @@
     margin-bottom: 1rem;
 }
 
-.form-recovery-resend {
+.form-recovery-request {
     background: #EAEDED;
-    border-top: 3px solid #494f54;
     margin: auto;
     max-width: 420px;
     padding: 15px;
     width: 100%;
 }
 
-.form-recovery-resend-title {
+.form-recovery-request-title {
     text-align: center;
 }

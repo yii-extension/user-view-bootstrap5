@@ -30,7 +30,6 @@ return [
         'path' => '@user-view-language',
         'defaultCategoryName' => 'user',
         'locale' => 'en',
-        'fallbackLocale' => 'es',
     ],
 
     'yiisoft/yii-view' => [
