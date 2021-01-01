@@ -87,13 +87,15 @@ $assetManager->register([
         </p>
     <?php endif ?>
 
-    <p class="text-center">
-        <?= Html::a(
-            $translator->translate('Don\'t have an account - Sign up!'),
-            $urlGenerator->generate('register'),
-            ['tabindex' => '5'],
-        ) ?>
-    </p>
+    <?php if ($setting->isRegister()) : ?>
+        <p class="text-center">
+            <?= Html::a(
+                $translator->translate('Don\'t have an account - Sign up!'),
+                $urlGenerator->generate('register'),
+                ['tabindex' => '5'],
+            ) ?>
+        </p>
+    <?php endif ?>
 
     <?php if ($setting->isConfirmation() === true) : ?>
         <p class="text-center">
