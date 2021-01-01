@@ -2,6 +2,10 @@
 
 declare(strict_types=1);
 
+// This file has been created using Google Translate.
+// Feel free to correct the translations and remove this message once proper
+// translations have been provided.
+
 return [
     'Already registered - Sign in!' => 'Уже зарегистрированы - Vходить!',
     'Continue' => 'Продолжить',
