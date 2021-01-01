@@ -13,26 +13,20 @@ $this->setTitle('404');
 
 ?>
 
-<h1 class="is-size-1">
-    <b>404</b>
-</h1>
+<h1 class="fw-bold">404</h1>
 
-<p class="has-text-danger">
-    <?= $translator->translate('The page') ?>
-    <strong><?= Html::encode($urlMatcher->getCurrentUri()->getPath()) ?></strong>
-    <?= $translator->translate('not found') . '.' ?>
+<p class="text-danger">
+    <?= sprintf($translator->translate('The page %s was not found.'), Html::tag('strong', Html::encode($urlMatcher->getCurrentUri()->getPath()))) ?>
 </p>
 
-<p class="has-text-grey">
-    <?= $translator->translate(
-        'The above error occurred while the Web server was processing your request'
-    ) . '.' ?>
+<p>
+    <?= $translator->translate('The above error occurred while the Web server was processing your request.') ?>
     <br/>
-    <?= $translator->translate('Please contact us if you think this is a server error. Thank you') . '.' ?>
+    <?= $translator->translate('Please contact us if you think this is a server error. Thank you.') ?>
 </p>
 
-<hr class="mb-2">
+<hr class="mb-3">
 
-<a class ="button is-danger mt-5" href="<?= $urlGenerator->generate('site/index') ?>">
+<a class ="btn btn-danger" href="<?= $urlGenerator->generate('site/index') ?>">
     <?= $translator->translate('Go Back Home') ?>
 </a>

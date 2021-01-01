@@ -33,15 +33,9 @@ $assetManager->register([
 
 ?>
 
-<p class="title form-registration-register-title">
+<h1 class="title form-registration-register-title">
     <?= $translator->translate('Register') . '.' ?>
-</p>
-
-<p class="subtitle form-registration-register-subtitle">
-    <?= $translator->translate('Please fill out the following') ?>
-</p>
-
-<hr class='mb-2'/>
+</h1>
 
 <div class = 'form-registration-register'>
 
@@ -59,7 +53,6 @@ $assetManager->register([
         <?= $field->config($data, 'email')
             ->textInput(
                 [
-                    'placeholder' => $translator->translate('Email'),
                     'tabindex' => '1'
                 ]
             ) ?>
@@ -67,7 +60,6 @@ $assetManager->register([
         <?= $field->config($data, 'username')
             ->textInput(
                 [
-                    'placeholder' => $translator->translate('Username'),
                     'tabindex' => '2'
                 ]
             ) ?>
@@ -76,7 +68,6 @@ $assetManager->register([
             <?= $field->config($data, 'password')
                 ->passwordInput(
                     [
-                        'placeholder' => $translator->translate('Password'),
                         'tabindex' => '3'
                     ]
                 ) ?>
@@ -92,10 +83,9 @@ $assetManager->register([
             ['class' => 'd-grid gap-2']
         ) ?>
 
+        <hr>
 
-        <hr class='mb-2'/>
-
-        <div class = 'text-center pt-3'>
+        <div class = 'text-center'>
             <?= Html::a(
                 $translator->translate('Already registered - Sign in!'),
                 $urlGenerator->generate('login'),

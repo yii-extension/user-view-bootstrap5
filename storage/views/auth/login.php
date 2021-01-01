@@ -34,15 +34,9 @@ $assetManager->register([
 
 ?>
 
-<p class="title form-security-login-title">
+<h1 class="title form-security-login-title">
     <?= $translator->translate('Sign in') ?>
-</p>
-
-<p class="subtitle form-security-login-subtitle ">
-    <?= $translator->translate('Please fill out the following') ?>
-</p>
-
-<hr class='mb-2'/>
+</h1>
 
 <div class = 'form-security-login'>
 
@@ -61,7 +55,6 @@ $assetManager->register([
             ->textInput(
                 [
                     'autofocus' => true,
-                    'placeholder' => $translator->translate('Username'),
                     'tabindex' => '1'
                     ]
             ) ?>
@@ -69,15 +62,14 @@ $assetManager->register([
         <?= $field->config($data, 'password')
             ->passwordInput(
                 [
-                    'placeholder' => $translator->translate('Password'),
                     'tabindex' => '2'
                 ]
             ) ?>
 
         <?= Html::div(
             Html::submitButton(
-                $translator->translate('Login') . ' ' .
-                html::tag('i', '', ['class' => 'bi bi-box-arrow-in-right', 'aria-hidden' => 'true']),
+                $translator->translate('Login') .
+                html::tag('i', '', ['class' => 'bi bi-box-arrow-in-right ms-2', 'aria-hidden' => 'true']),
                 [
                     'class' => 'btn btn-primary btn-lg mt-3',
                     'id' => 'login-button',
@@ -89,18 +81,20 @@ $assetManager->register([
 
     <?= Form::end() ?>
 
+    <hr>
+
     <?php if ($setting->isPasswordRecovery() === true) : ?>
-        <p class = 'has-text-grey has-margin-top-10'>
+        <p>
             <?= Html::a(
                 $translator->translate('Forgot Password'),
-                /*$url->generate('recovery/request'), */
+                '#', /*$url->generate('recovery/request'), */
                 ['tabindex' => '4'],
             ) ?>
         </p>
     <?php endif ?>
 
     <?php if ($setting->isConfirmation() === true) : ?>
-        <p class = 'has-text-grey'>
+        <p>
             <?= Html::a(
                 $translator->translate("Didn't receive confirmation message"),
                 $urlGenerator->generate('resend'),
