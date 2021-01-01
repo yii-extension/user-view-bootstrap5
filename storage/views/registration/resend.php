@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 use Yii\Extension\User\View\Asset\Resend;
 use App\Module\User\Form\FormResend;
-use App\Module\User\Repository\ModuleSettingsRepository;
 use Yiisoft\Assets\AssetManager;
 use Yiisoft\Form\Widget\Field;
 use Yiisoft\Form\Widget\Form;

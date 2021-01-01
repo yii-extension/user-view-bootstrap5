@@ -10,7 +10,6 @@ use Yiisoft\Form\Widget\Field;
 use Yiisoft\Form\Widget\Form;
 use Yiisoft\Html\Html;
 use Yiisoft\I18n\Locale;
-use Yiisoft\Translator\Message\Php\MessageSource;
 use Yiisoft\View\WebView;
 
 /**
@@ -35,7 +34,7 @@ $assetManager->register([
 ?>
 
 <h1 class="title form-security-login-title">
-    <?= $translator->translate('Sign in') ?>
+    <?= $translator->translate('Login') ?>
 </h1>
 
 <div class = 'form-security-login'>
