@@ -1,10 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 use Yiisoft\Html\Html;
 use Yiisoft\Router\UrlGeneratorInterface;
 use Yiisoft\Router\UrlMatcherInterface;
+use Yiisoft\Translator\Translator;
 
 /**
+ * @var Translator $translator
  * @var UrlGeneratorInterface $urlGenerator
  * @var UrlMatcherInterface $urlMatcher
  */

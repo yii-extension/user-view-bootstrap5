@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Yii\Extension\User\settings\RepositorySetting;
 use Yii\Extension\User\View\Asset\Login;
 use Yiisoft\Aliases\Aliases;
 use Yiisoft\Assets\AssetManager;
@@ -10,11 +11,12 @@ use Yiisoft\Form\Widget\Field;
 use Yiisoft\Form\Widget\Form;
 use Yiisoft\Html\Html;
 use Yiisoft\I18n\Locale;
-use Yiisoft\Translator\Message\Php\MessageSource;
+use Yiisoft\Translator\Translator;
+use Yiisoft\Router\UrlGeneratorInterface;
 use Yiisoft\View\WebView;
 
 /**
- * @var Aliases Aliases
+ * @var Aliases $aliases
  * @var string $action
  * @var AssetManager $assetManager
  * @var string|null $csrf
@@ -23,7 +25,10 @@ use Yiisoft\View\WebView;
  * @var bool $isPasswordRecovery
  * @var string $linkResend
  * @var Locale $locale
+ * @var RepositorySetting $setting
  * @var WebView $this
+ * @var Translator $translator
+ * @var UrlGeneratorInterface $urlGenerator
  */
 
 $this->setTitle('Login');
@@ -31,40 +36,28 @@ $this->setTitle('Login');
 $assetManager->register([
     Login::class,
 ]);
-
 ?>
 
-<h1 class="title form-security-login-title">
+<h1 class="title form-auth-login-title">
     <?= $translator->translate('Sign in') ?>
 </h1>
 
-<div class = 'form-security-login'>
+<div class = 'form-auth-login'>
 
     <?= Form::widget()
         ->action($urlGenerator->generate('login'))
         ->options(
             [
-                'id' => 'form-security-login',
-                'class' => 'form-login',
+                'id' => 'form-auth-login',
+                'class' => 'form-auth-login',
                 'csrf' => $csrf,
             ]
         )
         ->begin() ?>
 
-        <?= $field->config($data, 'login')
-            ->textInput(
-                [
-                    'autofocus' => true,
-                    'tabindex' => '1'
-                    ]
-            ) ?>
+        <?= $field->config($data, 'login')->textInput(['autofocus' => true, 'tabindex' => '1']) ?>
 
-        <?= $field->config($data, 'password')
-            ->passwordInput(
-                [
-                    'tabindex' => '2'
-                ]
-            ) ?>
+        <?= $field->config($data, 'password')->passwordInput(['tabindex' => '2']) ?>
 
         <?= Html::div(
             Html::submitButton(
@@ -81,20 +74,20 @@ $assetManager->register([
 
     <?= Form::end() ?>
 
-    <hr>
+    <hr class='mb-1'/>
 
-    <?php if ($setting->isPasswordRecovery() === true) : ?>
-        <p>
+    <?php if ($setting->isPasswordRecovery()) : ?>
+        <p class='text-center'>
             <?= Html::a(
-                $translator->translate('Forgot Password'),
-                '#', /*$url->generate('recovery/request'), */
+                $translator->translate('Recovery your password'),
+                $urlGenerator->generate('request'),
                 ['tabindex' => '4'],
             ) ?>
         </p>
     <?php endif ?>
 
-    <?php if ($setting->isConfirmation() === true) : ?>
-        <p>
+    <?php if ($setting->isConfirmation()) : ?>
+        <p class='text-center'>
             <?= Html::a(
                 $translator->translate("Didn't receive confirmation message"),
                 $urlGenerator->generate('resend'),

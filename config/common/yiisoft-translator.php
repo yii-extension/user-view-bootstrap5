@@ -33,7 +33,6 @@ return [
             Reference::to(Category::class),
             $params['yiisoft/translator']['locale'],
             Reference::to(EventDispatcherInterface::class),
-            $params['yiisoft/translator']['fallbackLocale'],
         ],
     ],
 ];

@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
+use Yii\Extension\User\Settings\RepositorySetting;
 use Yii\Extension\User\View\Asset\Resend;
-use App\Module\User\Form\FormResend;
-use App\Module\User\Repository\ModuleSettingsRepository;
 use Yiisoft\Assets\AssetManager;
+use Yiisoft\Form\FormModelInterface;
 use Yiisoft\Form\Widget\Field;
 use Yiisoft\Form\Widget\Form;
 use Yiisoft\Html\Html;
 use Yiisoft\I18n\Locale;
+use Yiisoft\Translator\Translator;
 use Yiisoft\Router\UrlGeneratorInterface;
-use Yiisoft\Translator\Message\Php\MessageSource;
 
 $this->setTitle('Resend confirmation message');
 
@@ -19,12 +19,12 @@ $this->setTitle('Resend confirmation message');
  * @var string $action
  * @var AssetManager $assetManager
  * @var string|null $csrf
- * @var FormResend $data
+ * @var FormModelInterface $data
  * @var Field $field
  * @var Locale $locale
  * @var RepositorySetting $setting
  * @var UrlGeneratorInterface $urlGenerator
- * @var MessageSource $translator
+ * @var Translator $translator
  */
 
 $assetManager->register([
@@ -33,29 +33,24 @@ $assetManager->register([
 
 ?>
 
-<h1 class="title form-registration-resend-title">
+<h1 class="title form-recovery-resend-title">
     <?= $translator->translate('Resend confirmation message') ?>
 </h1>
 
-<div class = 'form-registration-resend'>
+<div class = 'form-recovery-resend'>
 
     <?= Form::widget()
         ->action($urlGenerator->generate('resend'))
         ->options(
             [
-                'id' => 'form-registration-resend',
+                'id' => 'form-recovery-resend',
                 'class' => 'form-resend',
                 'csrf' => $csrf,
             ]
         )
         ->begin() ?>
 
-        <?= $field->config($data, 'email')
-            ->textInput(
-                [
-                    'tabindex' => '1'
-                ]
-            ) ?>
+        <?= $field->config($data, 'email')->textInput(['autofocus' => true, 'tabindex' => '1']) ?>
 
         <?= Html::div(
             Html::submitButton(
@@ -69,10 +64,10 @@ $assetManager->register([
 
     <?php Form::end(); ?>
 
-    <hr>
+    <hr class='mb-1'/>
 
-    <?php if ($settings->isRegister()) : ?>
-        <p class='text-center'>
+    <?php if ($setting->isRegister()) : ?>
+        <p class='text-center pt-3'>
             <?= Html::a(
                 $translator->translate("Don't have an account - Sign up!"),
                 $urlGenerator->generate('register'),
