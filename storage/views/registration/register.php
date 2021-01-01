@@ -77,7 +77,7 @@ $assetManager->register([
 
     <?php Form::end() ?>
 
-    <div class = 'text-center'>
+    <div class="text-center">
         <?= Html::a(
             $translator->translate('Already registered - Sign in!'),
             $urlGenerator->generate('login'),

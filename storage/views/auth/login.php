@@ -78,7 +78,7 @@ $assetManager->register([
     <hr class='mb-1'/>
 
     <?php if ($setting->isPasswordRecovery()) : ?>
-        <p class='text-center'>
+        <p class="text-center">
             <?= Html::a(
                 $translator->translate('Recovery your password'),
                 $urlGenerator->generate('request'),
@@ -87,7 +87,7 @@ $assetManager->register([
         </p>
     <?php endif ?>
 
-    <p>
+    <p class="text-center">
         <?= Html::a(
             $translator->translate('Don\'t have an account - Sign up!'),
             $url->generate('register'),
@@ -96,7 +96,7 @@ $assetManager->register([
     </p>
 
     <?php if ($setting->isConfirmation() === true) : ?>
-        <p>
+        <p class="text-center">
             <?= Html::a(
                 $translator->translate("Didn't receive confirmation message"),
                 $urlGenerator->generate('resend'),

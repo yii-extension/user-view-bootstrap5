@@ -68,7 +68,7 @@ $assetManager->register([
     <hr class='mb-1'/>
 
     <?php if ($setting->isRegister()) : ?>
-        <p class='text-center pt-3'>
+        <p class="text-center pt-3">
             <?= Html::a(
                 $translator->translate("Don't have an account - Sign up!"),
                 $urlGenerator->generate('register'),
@@ -77,7 +77,7 @@ $assetManager->register([
         </p>
     <?php endif ?>
 
-    <p class='text-center'>
+    <p class="text-center">
         <?= Html::a(
             $translator->translate('Already registered - Sign in!'),
             $urlGenerator->generate('login'),

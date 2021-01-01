@@ -61,7 +61,7 @@ $assetManager->register([
 
         <hr class='mb-1'/>
 
-        <div class = 'text-center'>
+        <div class="text-center">
             <?= Html::a(
                 $translator->translate('Already registered - Sign in!'),
                 $urlGenerator->generate('login'),
