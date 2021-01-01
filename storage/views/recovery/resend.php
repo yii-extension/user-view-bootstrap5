@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Yii\Extension\User\Settings\RepositorySetting;
 use Yii\Extension\User\View\Asset\Resend;
+use App\Module\User\Form\FormResend;
 use Yiisoft\Assets\AssetManager;
 use Yiisoft\Form\FormModelInterface;
 use Yiisoft\Form\Widget\Field;
@@ -33,7 +34,7 @@ $assetManager->register([
 
 ?>
 
-<h1 class="title form-recovery-resend-title">
+<h1 class="text-center">
     <?= $translator->translate('Resend confirmation message') ?>
 </h1>
 
@@ -67,7 +68,7 @@ $assetManager->register([
     <hr class='mb-1'/>
 
     <?php if ($setting->isRegister()) : ?>
-        <p class='text-center pt-3'>
+        <p class="text-center pt-3">
             <?= Html::a(
                 $translator->translate("Don't have an account - Sign up!"),
                 $urlGenerator->generate('register'),
@@ -76,7 +77,7 @@ $assetManager->register([
         </p>
     <?php endif ?>
 
-    <p class='text-center'>
+    <p class="text-center">
         <?= Html::a(
             $translator->translate('Already registered - Sign in!'),
             $urlGenerator->generate('login'),

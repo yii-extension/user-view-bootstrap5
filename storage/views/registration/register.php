@@ -33,7 +33,7 @@ $assetManager->register([
 
 ?>
 
-<h1 class="title form-registration-register-title">
+<h1 class="text-center">
     <?= $translator->translate('Register') ?>
 </h1>
 
@@ -77,7 +77,7 @@ $assetManager->register([
 
     <?php Form::end() ?>
 
-    <div class = 'text-center'>
+    <div class="text-center">
         <?= Html::a(
             $translator->translate('Already registered - Sign in!'),
             $urlGenerator->generate('login'),

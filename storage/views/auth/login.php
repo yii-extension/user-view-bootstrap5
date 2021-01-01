@@ -27,6 +27,7 @@ use Yiisoft\View\WebView;
  * @var Locale $locale
  * @var RepositorySetting $setting
  * @var WebView $this
+ * @var MessageSource $translator
  * @var Translator $translator
  * @var UrlGeneratorInterface $urlGenerator
  */
@@ -38,8 +39,8 @@ $assetManager->register([
 ]);
 ?>
 
-<h1 class="title form-auth-login-title">
-    <?= $translator->translate('Sign in') ?>
+<h1 class="text-center">
+    <?= $translator->translate('Login') ?>
 </h1>
 
 <div class = 'form-auth-login'>
@@ -77,7 +78,7 @@ $assetManager->register([
     <hr class='mb-1'/>
 
     <?php if ($setting->isPasswordRecovery()) : ?>
-        <p class='text-center'>
+        <p class="text-center">
             <?= Html::a(
                 $translator->translate('Recovery your password'),
                 $urlGenerator->generate('request'),
@@ -86,12 +87,20 @@ $assetManager->register([
         </p>
     <?php endif ?>
 
-    <?php if ($setting->isConfirmation()) : ?>
-        <p class='text-center'>
+    <p class="text-center">
+        <?= Html::a(
+            $translator->translate('Don\'t have an account - Sign up!'),
+            $url->generate('register'),
+            ['tabindex' => '5'],
+        ) ?>
+    </p>
+
+    <?php if ($setting->isConfirmation() === true) : ?>
+        <p class="text-center">
             <?= Html::a(
                 $translator->translate("Didn't receive confirmation message"),
                 $urlGenerator->generate('resend'),
-                ['tabindex' => '5'],
+                ['tabindex' => '6'],
             ) ?>
         </p>
     <?php endif ?>
