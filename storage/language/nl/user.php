@@ -5,7 +5,7 @@ declare(strict_types=1);
 return [
     'Already registered - Sign in!' => 'Reeds geregistreerd - Log in!',
     'Continue' => 'Doorgaan',
-    "Don't have an account - Sign up!" => "Nog geen account - Aanmelden!",
+    "Don't have an account - Sign up!" => "Nog geen account - Registreren!",
     "Didn't receive confirmation message" => "Bevestigingsmail niet ontvangen",
     'Email' => 'E-mail Adres',
     'Forgot Password' => 'Wachtwoord Vergeten',

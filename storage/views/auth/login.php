@@ -94,12 +94,20 @@ $assetManager->register([
         </p>
     <?php endif ?>
 
+    <p>
+        <?= Html::a(
+            $translator->translate('Don\'t have an account - Sign up!'),
+            $url->generate('register'),
+            ['tabindex' => '5'],
+        ) ?>
+    </p>
+
     <?php if ($setting->isConfirmation() === true) : ?>
         <p>
             <?= Html::a(
                 $translator->translate("Didn't receive confirmation message"),
                 $urlGenerator->generate('resend'),
-                ['tabindex' => '5'],
+                ['tabindex' => '6'],
             ) ?>
         </p>
     <?php endif ?>
