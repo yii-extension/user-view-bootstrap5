@@ -34,7 +34,7 @@ $assetManager->register([
 
 ?>
 
-<h1 class="title form-recovery-resend-title">
+<h1 class="text-center">
     <?= $translator->translate('Resend confirmation message') ?>
 </h1>
 

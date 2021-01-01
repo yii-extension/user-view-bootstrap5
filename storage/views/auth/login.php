@@ -39,7 +39,7 @@ $assetManager->register([
 ]);
 ?>
 
-<h1 class="title form-security-login-title">
+<h1 class="text-center">
     <?= $translator->translate('Login') ?>
 </h1>
 

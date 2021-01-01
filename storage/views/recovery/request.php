@@ -28,7 +28,7 @@ $assetManager->register([
 
 ?>
 
-<h1 class="title has-text-black">
+<h1 class="text-center">
     <?= $translator->translate('Recover your password') ?>
 </h1>
 

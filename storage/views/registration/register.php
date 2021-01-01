@@ -33,7 +33,7 @@ $assetManager->register([
 
 ?>
 
-<h1 class="title form-registration-register-title">
+<h1 class="text-center">
     <?= $translator->translate('Register') ?>
 </h1>
 
