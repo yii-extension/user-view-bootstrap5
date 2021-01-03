@@ -4,13 +4,9 @@
 }
 
 .form-auth-login, .form-recovery-request, .form-recovery-resend, .form-registration-register, .form-recovery-reset {
-    background: #EAEDED;
+    background: var(--bs-light);
     margin: auto;
     max-width: 420px;
     padding: 15px;
     width: 100%;
-}
-
-a:hover {
-    color: hsl(217, 71%, 53%) !important;
 }
