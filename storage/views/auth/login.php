@@ -31,6 +31,10 @@ use Yiisoft\View\WebView;
 
 $this->setTitle('Login');
 
+$assetManager->register(
+    $userParameter->getAssetClass(),
+);
+
 $tab = 0;
 ?>
 

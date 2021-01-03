@@ -2,15 +2,12 @@
 
 declare(strict_types=1);
 
-use Yii\Extension\User\View\Asset\UserAsset;
 use Yii\Extension\User\View\ViewInjection\UserViewInjection;
 use Yiisoft\Factory\Definitions\Reference;
 use Yiisoft\Yii\View\CsrfViewInjection;
 
 return [
     'yii-extension/user-view-bootstrap5' => [
-        'assetClass' => UserAsset::class,
-        'registerAsset' => true,
         'registerBootstrapAsset' => true,
         'registerBootstrapIconsAsset' => true,
     ],
