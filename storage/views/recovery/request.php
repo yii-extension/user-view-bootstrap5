@@ -30,47 +30,60 @@ $this->setTitle('Recover your password.');
 $assetManager->register(
     $userParameter->getAssetClass(),
 );
+
+$tab = 0;
 ?>
 
 <h1 class="title text-center">
     <?= $translator->translate('Recover your password') ?>
 </h1>
 
-<div class="form-recovery-request">
-    <?= Form::widget()
-        ->action($urlGenerator->generate('request'))
-        ->options(
-            [
-                'id' => 'form-recovery-request',
-                'class' => 'forms-recovery-request',
-                'csrf' => $csrf
-            ]
-        )
-        ->begin() ?>
+<div class="card bg-light mx-auto col-md-5">
+    <div class="card-body">
+        <p class="card-text">
+            <?= Form::widget()
+                ->action($urlGenerator->generate('request'))
+                ->options(
+                    [
+                        'id' => 'form-recovery-request',
+                        'csrf' => $csrf,
+                    ]
+                )
+                ->begin() ?>
 
-        <?= $field->config($data, 'email')->textInput(['autofocus' => true, 'tabindex' => '1']) ?>
+                <?= $field->config($data, 'email')->textInput(['autofocus' => true, 'tabindex' => ++$tab]) ?>
 
-        <?= Html::div(
-            Html::submitButton(
-                $translator->translate('Continue'),
-                [
-                    'class' => 'btn btn-primary btn-lg mt-3',
-                    'name' => 'request-button',
-                    'tabindex' => '2'
-                ],
-            ),
-            ['class' => 'd-grid gap-2']
-        ) ?>
+                <?= Html::div(
+                    Html::submitButton(
+                        $translator->translate('Continue'),
+                        [
+                            'class' => 'btn btn-primary btn-lg mt-3',
+                            'name' => 'request-button',
+                            'tabindex' => ++$tab
+                        ],
+                    ),
+                    ['class' => 'd-grid gap-2']
+                ) ?>
 
-        <hr class="mb-1"/>
+            <?= Form::end() ?>
+        </p>
 
-        <div class="text-center">
-            <?= Html::a(
-                $translator->translate('Already registered - Sign in!'),
-                $urlGenerator->generate('login'),
-                ['tabindex' => '3']
-            ) ?>
-        </div>
+    <?php
+    $items = [];
 
-    <?php Form::end() ?>
+    $items[] = Html::a(
+            $translator->translate('Already registered - Sign in!'),
+            $urlGenerator->generate('login'),
+            ['tabindex' => ++$tab],
+        );
+
+    echo Html::ul(
+        $items,
+        [
+            'class' => 'list-group list-group-flush pt-3',
+            'encode' => false,
+            'itemOptions' => ['class' => 'list-group-item text-center bg-light']
+        ]
+    );
+    ?>
 </div>
