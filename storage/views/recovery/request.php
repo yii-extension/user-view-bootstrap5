@@ -60,10 +60,10 @@ echo Html::tag('h1', $translator->translate('Login'), ['class' => 'text-center']
         $items = [];
 
         $items[] = Html::a(
-                $translator->translate('Already registered - Sign in!'),
-                $urlGenerator->generate('login'),
-                ['tabindex' => ++$tab],
-            );
+            $translator->translate('Already registered - Sign in!'),
+            $urlGenerator->generate('login'),
+            ['tabindex' => ++$tab],
+        );
 
         echo Html::ul(
             $items,

@@ -67,10 +67,10 @@ echo Html::tag('h1', $translator->translate('Login'), ['class' => 'text-center']
 
         if ($repositorySetting->isPasswordRecovery()) {
             $items[] = Html::a(
-                    $translator->translate('Forgot password'),
-                    $urlGenerator->generate('request'),
-                    ['tabindex' => ++$tab],
-                );
+                $translator->translate('Forgot password'),
+                $urlGenerator->generate('request'),
+                ['tabindex' => ++$tab],
+            );
         }
 
         if ($repositorySetting->isRegister()) {
