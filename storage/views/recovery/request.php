@@ -34,7 +34,7 @@ $assetManager->register(
 $tab = 0;
 ?>
 
-<h1 class="title text-center">
+<h1 class="text-center">
     <?= $translator->translate('Recover your password') ?>
 </h1>
 

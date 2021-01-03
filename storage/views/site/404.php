@@ -17,7 +17,7 @@ $this->setTitle('404');
 
 ?>
 
-<h1 class="title fw-bold">404</h1>
+<h1 class="fw-bold">404</h1>
 
 <p class="text-danger">
     <?= sprintf($translator->translate('The page %s was not found.'), Html::tag('strong', Html::encode($urlMatcher->getCurrentUri()->getPath()))) ?>
