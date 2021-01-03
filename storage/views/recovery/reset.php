@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use Yii\Extension\User\View\Parameter\UserParameter;
+use Yiisoft\Assets\AssetManager;
 use Yiisoft\Form\FormModelInterface;
 use Yiisoft\Form\Widget\Field;
 use Yiisoft\Form\Widget\Form;
@@ -11,6 +13,7 @@ use Yiisoft\Translator\Translator;
 use Yiisoft\View\WebView;
 
 /**
+ * @var AssetManager $assetManager
  * @var string $code
  * @var string|null $csrf
  * @var FormModelInterface $data
@@ -18,12 +21,17 @@ use Yiisoft\View\WebView;
  * @var string $id
  * @var Translator $translator
  * @var UrlGeneratorInterface $urlGenerator
+ * @var UserParameter $userParameter
  * @var WebView $this
  *
  * @psalm-suppress InvalidScope
  */
 
 $this->setTitle('Reset your password.');
+
+$assetManager->register(
+    $userParameter->getAssetClass(),
+);
 ?>
 
 <h1 class="title text-center">

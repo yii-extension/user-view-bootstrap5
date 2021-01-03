@@ -44,17 +44,18 @@ final class UserViewInjection implements ContentParametersInjectionInterface, La
         $this->urlMatcher = $urlMatcher;
         $this->user = $user;
         $this->userParameter = $userParameter;
-        $this->registerAsset();
     }
 
     public function getContentParameters(): array
     {
         return [
+            'assetManager' => $this->assetManager,
             'field' => $this->field,
             'repositorySetting' => $this->repositorySetting,
             'translator' => $this->translator,
             'urlGenerator' => $this->urlGenerator,
             'urlMatcher' => $this->urlMatcher,
+            'userParameter' => $this->userParameter,
         ];
     }
 
@@ -67,12 +68,5 @@ final class UserViewInjection implements ContentParametersInjectionInterface, La
             'urlMatcher' => $this->urlMatcher,
             'user' => $this->user,
         ];
-    }
-
-    private function registerAsset(): void
-    {
-        $this->assetManager->register(
-            $this->userParameter->getAssetClass(),
-        );
     }
 }
