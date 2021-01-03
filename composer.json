@@ -13,9 +13,7 @@
     "prefer-stable": true,
     "require": {
         "php": "^7.4|^8.0",
-        "npm-asset/bootstrap-icons": "^1.2.1",
         "yii-extension/user-settings": "^1.0@dev",
-        "yiisoft/assets": "^1.0@dev",
         "yiisoft/form": "^1.0@dev",
         "yiisoft/router": "^3.0@dev",
         "yiisoft/translator-formatter-intl": "^3.0@dev",

@@ -3,8 +3,6 @@
 declare(strict_types=1);
 
 use Yii\Extension\User\Settings\RepositorySetting;
-use Yii\Extension\User\View\Parameter\UserParameter;
-use Yiisoft\Assets\AssetManager;
 use Yiisoft\Form\FormModelInterface;
 use Yiisoft\Form\Widget\Field;
 use Yiisoft\Form\Widget\Form;
@@ -15,14 +13,12 @@ use Yiisoft\Router\UrlGeneratorInterface;
 use Yiisoft\View\WebView;
 
 /**
- * @var AssetManager $assetManager
  * @var string|null $csrf
  * @var FormModelInterface $data
  * @var Field $field
  * @var Locale $locale
  * @var RepositorySetting $repositorySetting
  * @var UrlGeneratorInterface $urlGenerator
- * @var UserParameter $userParameter
  * @var Translator $translator
  * @var WebView $this
  *
@@ -31,58 +27,65 @@ use Yiisoft\View\WebView;
 
 $this->setTitle('Resend confirmation message');
 
-$assetManager->register(
-    $userParameter->getAssetClass(),
-);
+$tab = 0;
 ?>
 
-<h1 class="title text-center">
+<h1 class="text-center">
     <?= $translator->translate('Resend confirmation message') ?>
 </h1>
 
-<div class="form-recovery-resend">
-    <?= Form::widget()
-        ->action($urlGenerator->generate('resend'))
-        ->options(
-            [
-                'id' => 'form-recovery-resend',
-                'class' => 'form-resend',
-                'csrf' => $csrf,
-            ]
-        )
-        ->begin() ?>
+<div class="card bg-light mx-auto col-md-5">
+    <div class="card-body">
+        <p class="card-text">
+            <?= Form::widget()
+                ->action($urlGenerator->generate('resend'))
+                ->options(
+                    [
+                        'id' => 'form-recovery-resend',
+                        'csrf' => $csrf,
+                    ]
+                )
+                ->begin() ?>
 
-        <?= $field->config($data, 'email')->textInput(['autofocus' => true, 'tabindex' => '1']) ?>
+                <?= $field->config($data, 'email')->textInput(['autofocus' => true, 'tabindex' => ++$tab]) ?>
 
-        <?= Html::div(
-            Html::submitButton(
-                $translator->translate('Continue'),
-                [
-                    'class' => 'btn btn-primary btn-lg mt-3', 'name' => 'resend-button', 'tabindex' => '2'
-                ]
-            ),
-            ['class' => 'd-grid gap-2']
-        ) ?>
+                <?= Html::div(
+                    Html::submitButton(
+                        $translator->translate('Continue'),
+                        [
+                            'class' => 'btn btn-primary btn-lg mt-3', 'name' => 'resend-button', 'tabindex' => ++$tab
+                        ]
+                    ),
+                    ['class' => 'd-grid gap-2']
+                ) ?>
 
-    <?php Form::end(); ?>
+            <?= Form::end() ?>
+        </p>
 
-    <hr class="mb-1"/>
+    <?php
+    $items = [];
 
-    <?php if ($repositorySetting->isRegister()) : ?>
-        <div class="text-center">
-            <?= Html::a(
-                $translator->translate("Don't have an account - Sign up!"),
-                $urlGenerator->generate('register'),
-                ['tabindex' => '3']
-            ) ?>
-        </div>
-    <?php endif ?>
+    if ($repositorySetting->isRegister()) {
+        $items[] = Html::a(
+            $translator->translate('Don\'t have an account - Sign up!'),
+            $urlGenerator->generate('register'),
+            ['tabindex' => ++$tab],
+        );
+    }
 
-    <div class="text-center">
-        <?= Html::a(
-            $translator->translate('Already registered - Sign in!'),
-            $urlGenerator->generate('login'),
-            ['tabindex' => '4']
-        ) ?>
-    </div>
+    $items[] =  Html::a(
+        $translator->translate('Already registered - Sign in!'),
+        $urlGenerator->generate('login'),
+        ['tabindex' => ++$tab],
+    );
+
+    echo Html::ul(
+        $items,
+        [
+            'class' => 'list-group list-group-flush pt-3',
+            'encode' => false,
+            'itemOptions' => ['class' => 'list-group-item text-center bg-light']
+        ]
+    );
+    ?>
 </div>

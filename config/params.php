@@ -2,19 +2,11 @@
 
 declare(strict_types=1);
 
-use Yii\Extension\User\View\Asset\UserAsset;
 use Yii\Extension\User\View\ViewInjection\UserViewInjection;
 use Yiisoft\Factory\Definitions\Reference;
 use Yiisoft\Yii\View\CsrfViewInjection;
 
 return [
-    'yii-extension/user-view-bootstrap5' => [
-        'assetClass' => UserAsset::class,
-        'registerAsset' => true,
-        'registerBootstrapAsset' => true,
-        'registerBootstrapIconsAsset' => true,
-    ],
-
     'yiisoft/aliases' => [
         'aliases' => [
             '@user-view-css' =>  dirname(__DIR__) . '/storage/asset/css',
@@ -33,7 +25,6 @@ return [
     'yiisoft/translator' => [
         'path' => '@user-view-language',
         'defaultCategoryName' => 'user',
-        'locale' => 'en',
     ],
 
     'yiisoft/yii-view' => [
