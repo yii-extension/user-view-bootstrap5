@@ -19,6 +19,7 @@ return [
     'Please contact us if you t1hink this is a server error. Thank you.' => 'Свяжитесь с нами, если вы считаете, что это ошибка сервера. Спасибо.',
     'Register' => 'Регистрация',
     'Resend confirmation message' => 'Отправить сообщение с подтверждением еще раз',
+    'Reset password' => 'Сброс пароля',
     'The above error occurred while the Web server was processing your request.' => 'Вышеупомянутая ошибка произошла во время обработки вашего запроса сервером.',
     'The page %s was not found.' => 'Страница %s не найдена.',
     'Username' => 'Имя пользователя',

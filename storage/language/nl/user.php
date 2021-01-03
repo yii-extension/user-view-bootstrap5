@@ -15,6 +15,7 @@ return [
     'Please contact us if you think this is a server error. Thank you.' => 'Neem contact met ons op als je denkt dat dit een fout is. Dank je.',
     'Register' => 'Registreren',
     'Resend confirmation message' => 'Bevestigingsmail opnieuw versturen.',
+    'Reset password' => 'Wachtwoord resetten',
     'The above error occurred while the Web server was processing your request.' => 'De bovenstaande fout is opgetreden tijdens het verwerken van je aanvraag.',
     'The page %s was not found.' => 'De pagina %s kon niet worden gevonden.',
     'Username' => 'Gebruikersnaam',

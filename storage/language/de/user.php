@@ -15,6 +15,7 @@ return [
     'Please contact us if you think this is a server error. Thank you.' => 'Bitte kontaktieren Sie uns, wenn Sie glauben, dass dies ein Serverfehler ist. Danke.',
     'Register' => 'Registrieren',
     'Resend confirmation message' => 'Bestätigungsnachricht erneut senden',
+    'Reset password' => 'Kennwort zurücksetzen',
     'The above error occurred while the Web server was processing your request.' => 'Der obige Fehler ist aufgetreten, während der Webserver Ihre Anfrage verarbeitet hat.',
     'The page %s was not found.' => 'Die Seite %s wurde nicht gefunden.',
     'Username' => 'Benutzername',

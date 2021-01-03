@@ -27,7 +27,7 @@ $tab = 0;
 ?>
 
 <h1 class="text-center">
-    <?= $translator->translate('Recover your password') ?>
+    <?= $translator->translate('Reset password') ?>
 </h1>
 
 <div class="card bg-light mx-auto col-md-5">
