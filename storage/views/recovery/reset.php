@@ -30,7 +30,7 @@ $tab = 0;
 echo Html::tag('h1', $translator->translate('Login'), ['class' => 'text-center']);
 ?>
 
-<div class="card bg-light mx-auto col-md-5">
+<div class="card bg-light mx-auto col-md-4">
     <div class="card-body">
         <?= Form::widget()
             ->action($urlGenerator->generate('reset', ['id' => $id, 'code' => $code]))
