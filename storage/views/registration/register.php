@@ -28,67 +28,64 @@ use Yiisoft\View\WebView;
 $this->setTitle('Register');
 
 $tab = 0;
-?>
 
-<h1 class="text-center">
-    <?= $translator->translate('Register') ?>
-</h1>
+echo Html::tag('h1', $translator->translate('Login'), ['class' => 'text-center']);
+?>
 
 <div class="card bg-light mx-auto col-md-5">
     <div class="card-body">
-        <p class="card-text">
-            <?= Form::widget()
-                ->action($urlGenerator->generate('register'))
-                ->options(
-                    [
-                        'id' => 'form-registration-register',
-                        'csrf' => $csrf,
-                    ]
-                )
-                ->begin() ?>
+        <?= Form::widget()
+            ->action($urlGenerator->generate('register'))
+            ->options(
+                [
+                    'id' => 'form-registration-register',
+                    'csrf' => $csrf,
+                ]
+            )
+            ->begin() ?>
 
-                <?= $field->config($data, 'email')->textInput(['autofocus' => true, 'tabindex' => ++$tab]) ?>
+            <?= $field->config($data, 'email')->textInput(['autofocus' => true, 'tabindex' => ++$tab]) ?>
 
-                <?= $field->config($data, 'username')->textInput(['tabindex' => ++$tab]) ?>
+            <?= $field->config($data, 'username')->textInput(['tabindex' => ++$tab]) ?>
 
-                <?php if ($repositorySetting->isGeneratingPassword() === false) : ?>
-                    <?= $field->config($data, 'password')
-                        ->passwordInput(
-                            [
-                                'tabindex' => ++$tab
-                            ]
-                        ) ?>
-                <?php endif ?>
-
-                <?= Html::div(
-                    Html::submitButton(
-                        $translator->translate('Register'),
+            <?php if ($repositorySetting->isGeneratingPassword() === false) : ?>
+                <?= $field->config($data, 'password')
+                    ->passwordInput(
                         [
-                            'class' => 'btn btn-primary btn-lg mt-3', 'id' => 'register-button', 'tabindex' => ++$tab
+                            'tabindex' => ++$tab
                         ]
-                    ),
-                    ['class' => 'd-grid gap-2']
-                ) ?>
+                    ) ?>
+            <?php endif ?>
 
-            <?= Form::end() ?>
-        </p>
+            <?= Html::div(
+                Html::submitButton(
+                    $translator->translate('Register'),
+                    [
+                        'class' => 'btn btn-primary btn-lg mt-3', 'id' => 'register-button', 'tabindex' => ++$tab
+                    ]
+                ),
+                ['class' => 'd-grid gap-2']
+            ) ?>
 
-    <?php
-    $items = [];
+        <?= Form::end() ?>
 
-    $items[] = Html::a(
-            $translator->translate('Already registered - Sign in!'),
-            $urlGenerator->generate('login'),
-            ['tabindex' => ++$tab],
+        <?php
+        $items = [];
+
+        $items[] = Html::a(
+                $translator->translate('Already registered - Sign in!'),
+                $urlGenerator->generate('login'),
+                ['tabindex' => ++$tab],
+            );
+
+        echo Html::ul(
+            $items,
+            [
+                'class' => 'list-group list-group-flush pt-3',
+                'encode' => false,
+                'itemOptions' => ['class' => 'list-group-item text-center bg-light']
+            ]
         );
-
-    echo Html::ul(
-        $items,
-        [
-            'class' => 'list-group list-group-flush pt-3',
-            'encode' => false,
-            'itemOptions' => ['class' => 'list-group-item text-center bg-light']
-        ]
-    );
-    ?>
+        ?>
+    </div>
 </div>

@@ -28,64 +28,61 @@ use Yiisoft\View\WebView;
 $this->setTitle('Resend confirmation message');
 
 $tab = 0;
-?>
 
-<h1 class="text-center">
-    <?= $translator->translate('Resend confirmation message') ?>
-</h1>
+echo Html::tag('h1', $translator->translate('Login'), ['class' => 'text-center']);
+?>
 
 <div class="card bg-light mx-auto col-md-5">
     <div class="card-body">
-        <p class="card-text">
-            <?= Form::widget()
-                ->action($urlGenerator->generate('resend'))
-                ->options(
+        <?= Form::widget()
+            ->action($urlGenerator->generate('resend'))
+            ->options(
+                [
+                    'id' => 'form-recovery-resend',
+                    'csrf' => $csrf,
+                ]
+            )
+            ->begin() ?>
+
+            <?= $field->config($data, 'email')->textInput(['autofocus' => true, 'tabindex' => ++$tab]) ?>
+
+            <?= Html::div(
+                Html::submitButton(
+                    $translator->translate('Continue'),
                     [
-                        'id' => 'form-recovery-resend',
-                        'csrf' => $csrf,
+                        'class' => 'btn btn-primary btn-lg mt-3', 'name' => 'resend-button', 'tabindex' => ++$tab
                     ]
-                )
-                ->begin() ?>
+                ),
+                ['class' => 'd-grid gap-2']
+            ) ?>
 
-                <?= $field->config($data, 'email')->textInput(['autofocus' => true, 'tabindex' => ++$tab]) ?>
+        <?= Form::end() ?>
 
-                <?= Html::div(
-                    Html::submitButton(
-                        $translator->translate('Continue'),
-                        [
-                            'class' => 'btn btn-primary btn-lg mt-3', 'name' => 'resend-button', 'tabindex' => ++$tab
-                        ]
-                    ),
-                    ['class' => 'd-grid gap-2']
-                ) ?>
+        <?php
+        $items = [];
 
-            <?= Form::end() ?>
-        </p>
+        if ($repositorySetting->isRegister()) {
+            $items[] = Html::a(
+                $translator->translate('Don\'t have an account - Sign up!'),
+                $urlGenerator->generate('register'),
+                ['tabindex' => ++$tab],
+            );
+        }
 
-    <?php
-    $items = [];
-
-    if ($repositorySetting->isRegister()) {
-        $items[] = Html::a(
-            $translator->translate('Don\'t have an account - Sign up!'),
-            $urlGenerator->generate('register'),
+        $items[] =  Html::a(
+            $translator->translate('Already registered - Sign in!'),
+            $urlGenerator->generate('login'),
             ['tabindex' => ++$tab],
         );
-    }
 
-    $items[] =  Html::a(
-        $translator->translate('Already registered - Sign in!'),
-        $urlGenerator->generate('login'),
-        ['tabindex' => ++$tab],
-    );
-
-    echo Html::ul(
-        $items,
-        [
-            'class' => 'list-group list-group-flush pt-3',
-            'encode' => false,
-            'itemOptions' => ['class' => 'list-group-item text-center bg-light']
-        ]
-    );
-    ?>
+        echo Html::ul(
+            $items,
+            [
+                'class' => 'list-group list-group-flush pt-3',
+                'encode' => false,
+                'itemOptions' => ['class' => 'list-group-item text-center bg-light']
+            ]
+        );
+        ?>
+    </div>
 </div>
