@@ -8,7 +8,6 @@ use Yii\Extension\User\Settings\RepositorySetting;
 use Yii\Extension\User\View\Parameter\UserParameter;
 use Yiisoft\Assets\AssetManager;
 use Yiisoft\Form\Widget\Field;
-use Yiisoft\I18n\Locale;
 use Yiisoft\Router\UrlGeneratorInterface;
 use Yiisoft\Router\UrlMatcherInterface;
 use Yiisoft\Translator\Translator;
@@ -20,7 +19,6 @@ final class UserViewInjection implements ContentParametersInjectionInterface, La
 {
     private AssetManager $assetManager;
     private Field $field;
-    private Locale $locale;
     private RepositorySetting $repositorySetting;
     private Translator $translator;
     private UrlGeneratorInterface $urlGenerator;
@@ -31,7 +29,6 @@ final class UserViewInjection implements ContentParametersInjectionInterface, La
     public function __construct(
         AssetManager $assetManager,
         Field $field,
-        Locale $locale,
         RepositorySetting $repositorySetting,
         Translator $translator,
         UrlGeneratorInterface $urlGenerator,
@@ -41,7 +38,6 @@ final class UserViewInjection implements ContentParametersInjectionInterface, La
     ) {
         $this->assetManager = $assetManager;
         $this->field = $field;
-        $this->locale = $locale;
         $this->repositorySetting = $repositorySetting;
         $this->translator = $translator;
         $this->urlGenerator = $urlGenerator;
@@ -66,7 +62,6 @@ final class UserViewInjection implements ContentParametersInjectionInterface, La
     {
         return [
             'assetManager' => $this->assetManager,
-            'locale' => $this->locale,
             'translator' => $this->translator,
             'urlGenerator' => $this->urlGenerator,
             'urlMatcher' => $this->urlMatcher,

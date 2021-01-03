@@ -8,7 +8,7 @@ use Yiisoft\Factory\Definitions\Reference;
 use Yiisoft\Yii\View\CsrfViewInjection;
 
 return [
-    'yii-extension/user-view-bulma' => [
+    'yii-extension/user-view-bootstrap5' => [
         'assetClass' => [UserAsset::class],
         'registerAsset' => true,
     ],
@@ -20,10 +20,6 @@ return [
             '@user-view-mail' =>  dirname(__DIR__) . '/storage/mail',
             '@user-view-views' => dirname(__DIR__) . '/storage/views',
         ]
-    ],
-
-    'yiisoft/i18n' => [
-        'locale' => 'en'
     ],
 
     'yiisoft/mailer' => [

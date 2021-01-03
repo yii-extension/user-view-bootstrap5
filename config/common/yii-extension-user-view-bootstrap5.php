@@ -10,8 +10,8 @@ return [
     UserParameter::class => [
         'class' => UserParameter::class,
         '__construct()' => [
-            $params['yii-extension/user-view-bulma']['assetClass'],
-            $params['yii-extension/user-view-bulma']['registerAsset'],
+            $params['yii-extension/user-view-bootstrap5']['assetClass'],
+            $params['yii-extension/user-view-bootstrap5']['registerAsset'],
         ],
     ],
 ];
