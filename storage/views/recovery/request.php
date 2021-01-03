@@ -46,7 +46,7 @@ echo Html::tag('h1', $translator->translate('Login'), ['class' => 'text-center']
                 Html::submitButton(
                     $translator->translate('Continue'),
                     [
-                        'class' => 'btn btn-primary btn-lg mt-3',
+                        'class' => 'btn btn-primary btn-lg my-3',
                         'name' => 'request-button',
                         'tabindex' => ++$tab
                     ],
@@ -68,7 +68,7 @@ echo Html::tag('h1', $translator->translate('Login'), ['class' => 'text-center']
         echo Html::ul(
             $items,
             [
-                'class' => 'list-group list-group-flush pt-3',
+                'class' => 'list-group list-group-flush',
                 'encode' => false,
                 'itemOptions' => ['class' => 'list-group-item text-center bg-light']
             ]

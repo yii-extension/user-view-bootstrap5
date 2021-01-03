@@ -61,7 +61,7 @@ echo Html::tag('h1', $translator->translate('Login'), ['class' => 'text-center']
                 Html::submitButton(
                     $translator->translate('Register'),
                     [
-                        'class' => 'btn btn-primary btn-lg mt-3', 'id' => 'register-button', 'tabindex' => ++$tab
+                        'class' => 'btn btn-primary btn-lg my-3', 'id' => 'register-button', 'tabindex' => ++$tab
                     ]
                 ),
                 ['class' => 'd-grid gap-2']
@@ -81,7 +81,7 @@ echo Html::tag('h1', $translator->translate('Login'), ['class' => 'text-center']
         echo Html::ul(
             $items,
             [
-                'class' => 'list-group list-group-flush pt-3',
+                'class' => 'list-group list-group-flush',
                 'encode' => false,
                 'itemOptions' => ['class' => 'list-group-item text-center bg-light']
             ]
