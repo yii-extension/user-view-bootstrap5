@@ -7,17 +7,18 @@ namespace Yii\Extension\User\View\Asset;
 use Yiisoft\Assets\AssetBundle;
 use Yiisoft\Yii\Bootstrap5\Assets\BootstrapAsset;
 
-final class Resend extends AssetBundle
+final class UserAsset extends AssetBundle
 {
     public ?string $basePath = '@assets';
     public ?string $baseUrl = '@assetsUrl';
     public ?string $sourcePath = '@user-view-css';
 
     public array $css = [
-        'resend.css',
+        'user-view-bootstrap5.css',
     ];
 
     public array $depends = [
-        BootstrapAsset::class
+        BootstrapAsset::class,
+        BootstrapIcons::class,
     ];
 }

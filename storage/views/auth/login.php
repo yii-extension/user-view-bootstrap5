@@ -2,10 +2,7 @@
 
 declare(strict_types=1);
 
-use Yii\Extension\User\settings\RepositorySetting;
-use Yii\Extension\User\View\Asset\Login;
-use Yiisoft\Aliases\Aliases;
-use Yiisoft\Assets\AssetManager;
+use Yii\Extension\User\Settings\RepositorySetting;
 use Yiisoft\Form\FormModelInterface;
 use Yiisoft\Form\Widget\Field;
 use Yiisoft\Form\Widget\Form;
@@ -16,35 +13,26 @@ use Yiisoft\Router\UrlGeneratorInterface;
 use Yiisoft\View\WebView;
 
 /**
- * @var Aliases $aliases
- * @var string $action
- * @var AssetManager $assetManager
  * @var string|null $csrf
  * @var FormModelInterface $data
  * @var Field $field
- * @var bool $isPasswordRecovery
- * @var string $linkResend
  * @var Locale $locale
- * @var RepositorySetting $setting
- * @var WebView $this
- * @var MessageSource $translator
+ * @var RepositorySetting $repositorySetting
  * @var Translator $translator
  * @var UrlGeneratorInterface $urlGenerator
+ * @var WebView $this
+ *
+ * @psalm-suppress InvalidScope
  */
 
 $this->setTitle('Login');
-
-$assetManager->register([
-    Login::class,
-]);
 ?>
 
-<h1 class="text-center">
+<h1 class="title text-center">
     <?= $translator->translate('Login') ?>
 </h1>
 
-<div class = 'form-auth-login'>
-
+<div class="form-auth-login">
     <?= Form::widget()
         ->action($urlGenerator->generate('login'))
         ->options(
@@ -75,36 +63,35 @@ $assetManager->register([
 
     <?= Form::end() ?>
 
-    <hr class='mb-1'/>
+    <hr class="mt-1"/>
 
-    <?php if ($setting->isPasswordRecovery()) : ?>
-        <p class="text-center">
+    <?php if ($repositorySetting->isPasswordRecovery()) : ?>
+        <div class="text-center">
             <?= Html::a(
                 $translator->translate('Forgot password'),
                 $urlGenerator->generate('request'),
                 ['tabindex' => '4'],
             ) ?>
-        </p>
+        </div>
     <?php endif ?>
 
-    <?php if ($setting->isRegister()) : ?>
-        <p class="text-center">
+    <?php if ($repositorySetting->isRegister()) : ?>
+        <div class="text-center">
             <?= Html::a(
                 $translator->translate('Don\'t have an account - Sign up!'),
                 $urlGenerator->generate('register'),
                 ['tabindex' => '5'],
             ) ?>
-        </p>
+        </div>
     <?php endif ?>
 
-    <?php if ($setting->isConfirmation() === true) : ?>
-        <p class="text-center">
+    <?php if ($repositorySetting->isConfirmation() === true) : ?>
+        <div class="text-center">
             <?= Html::a(
                 $translator->translate("Didn't receive confirmation message"),
                 $urlGenerator->generate('resend'),
                 ['tabindex' => '6'],
             ) ?>
-        </p>
+        </div>
     <?php endif ?>
-
 </div>

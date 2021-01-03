@@ -3,8 +3,6 @@
 declare(strict_types=1);
 
 use Yii\Extension\User\Settings\RepositorySetting;
-use Yii\Extension\User\View\Asset\Register;
-use Yiisoft\Assets\AssetManager;
 use Yiisoft\Form\FormModelInterface;
 use Yiisoft\Form\Widget\Field;
 use Yiisoft\Form\Widget\Form;
@@ -12,33 +10,29 @@ use Yiisoft\Html\Html;
 use Yiisoft\I18n\Locale;
 use Yiisoft\Router\UrlGeneratorInterface;
 use Yiisoft\Translator\Translator;
-
-$this->setTitle('Register');
+use Yiisoft\View\WebView;
 
  /**
-  * @var string $action
-  * @var AssetManager $assetManager
   * @var string|null $csrf
   * @var FormModelInterface $data
   * @var Field $field
   * @var Locale $locale
-  * @var RepositorySetting $setting
+  * @var RepositorySetting $repositorySetting
   * @var Translator $translator
   * @var UrlGeneratorInterface $urlGenerator
+  * @var WebView $this
+  *
+  * @psalm-suppress InvalidScope
   */
 
-$assetManager->register([
-    Register::class
-]);
-
+$this->setTitle('Register');
 ?>
 
-<h1 class="text-center">
+<h1 class="title text-center">
     <?= $translator->translate('Register') ?>
 </h1>
 
-<div class = 'form-registration-register'>
-
+<div class="form-registration-register">
     <?= Form::widget()
         ->action($urlGenerator->generate('register'))
         ->options(
@@ -54,7 +48,7 @@ $assetManager->register([
 
         <?= $field->config($data, 'username')->textInput(['tabindex' => '2']) ?>
 
-        <?php if ($setting->isGeneratingPassword() === false) : ?>
+        <?php if ($repositorySetting->isGeneratingPassword() === false) : ?>
             <?= $field->config($data, 'password')
                 ->passwordInput(
                     [
@@ -73,7 +67,7 @@ $assetManager->register([
             ['class' => 'd-grid gap-2']
         ) ?>
 
-        <hr class='mb-1'/>
+        <hr class="mb-1"/>
 
     <?php Form::end() ?>
 
@@ -84,5 +78,4 @@ $assetManager->register([
             ['tabindex' => '5']
         ) ?>
     </div>
-
 </div>

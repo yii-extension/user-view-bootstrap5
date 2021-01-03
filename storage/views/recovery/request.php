@@ -2,38 +2,33 @@
 
 declare(strict_types=1);
 
-use Yii\Extension\User\View\Asset\Request;
-use Yiisoft\Assets\AssetManager;
 use Yiisoft\Form\FormModelInterface;
 use Yiisoft\Form\Widget\Field;
 use Yiisoft\Form\Widget\Form;
 use Yiisoft\Html\Html;
 use Yiisoft\Router\UrlGeneratorInterface;
 use Yiisoft\Translator\Translator;
-
-$this->setTitle('Recover your password.');
+use Yiisoft\View\WebView;
 
 /**
- * @var AssetManager $assetManager
  * @var string|null $csrf
  * @var FormModelInterface $data
  * @var Field $field
  * @var Translator $translator
  * @var UrlGeneratorInterface $urlGenerator
+ * @var WebView $this
+ *
+ * @psalm-suppress InvalidScope
  */
 
-$assetManager->register([
-    Request::class
-]);
-
+$this->setTitle('Recover your password.');
 ?>
 
-<h1 class="text-center">
+<h1 class="title text-center">
     <?= $translator->translate('Recover your password') ?>
 </h1>
 
-<div class = 'form-recovery-request'>
-
+<div class="form-recovery-request">
     <?= Form::widget()
         ->action($urlGenerator->generate('request'))
         ->options(
@@ -59,7 +54,7 @@ $assetManager->register([
             ['class' => 'd-grid gap-2']
         ) ?>
 
-        <hr class='mb-1'/>
+        <hr class="mb-1"/>
 
         <div class="text-center">
             <?= Html::a(
@@ -70,5 +65,4 @@ $assetManager->register([
         </div>
 
     <?php Form::end() ?>
-
 </div>

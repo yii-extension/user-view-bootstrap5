@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Yii\Extension\User\View\ViewInjection;
 
 use Yii\Extension\User\Settings\RepositorySetting;
+use Yii\Extension\User\View\Parameter\UserParameter;
 use Yiisoft\Assets\AssetManager;
 use Yiisoft\Form\Widget\Field;
 use Yiisoft\I18n\Locale;
@@ -20,38 +21,41 @@ final class UserViewInjection implements ContentParametersInjectionInterface, La
     private AssetManager $assetManager;
     private Field $field;
     private Locale $locale;
-    private RepositorySetting $setting;
+    private RepositorySetting $repositorySetting;
     private Translator $translator;
     private UrlGeneratorInterface $urlGenerator;
     private UrlMatcherInterface $urlMatcher;
     private User $user;
+    private UserParameter $userParameter;
 
     public function __construct(
         AssetManager $assetManager,
         Field $field,
         Locale $locale,
-        RepositorySetting $setting,
+        RepositorySetting $repositorySetting,
         Translator $translator,
         UrlGeneratorInterface $urlGenerator,
         UrlMatcherInterface $urlMatcher,
-        User $user
+        User $user,
+        UserParameter $userParameter
     ) {
         $this->assetManager = $assetManager;
         $this->field = $field;
         $this->locale = $locale;
-        $this->setting = $setting;
+        $this->repositorySetting = $repositorySetting;
         $this->translator = $translator;
         $this->urlGenerator = $urlGenerator;
         $this->urlMatcher = $urlMatcher;
         $this->user = $user;
+        $this->userParameter = $userParameter;
+        $this->registerAsset();
     }
 
     public function getContentParameters(): array
     {
         return [
-            'assetManager' => $this->assetManager,
             'field' => $this->field,
-            'setting' => $this->setting,
+            'repositorySetting' => $this->repositorySetting,
             'translator' => $this->translator,
             'urlGenerator' => $this->urlGenerator,
             'urlMatcher' => $this->urlMatcher,
@@ -68,5 +72,14 @@ final class UserViewInjection implements ContentParametersInjectionInterface, La
             'urlMatcher' => $this->urlMatcher,
             'user' => $this->user,
         ];
+    }
+
+    private function registerAsset(): void
+    {
+        if ($this->userParameter->isRegisteredAsset()) {
+            $this->assetManager->register(
+                $this->userParameter->getAssetClass(),
+            );
+        }
     }
 }
