@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Yii\Extension\User\View\Asset;
 
 use Yiisoft\Assets\AssetBundle;
-use Yiisoft\Yii\Bootstrap5\Assets\BootstrapAsset;
 
 final class UserAsset extends AssetBundle
 {
@@ -15,10 +14,5 @@ final class UserAsset extends AssetBundle
 
     public array $css = [
         'user-view-bootstrap5.css',
-    ];
-
-    public array $depends = [
-        BootstrapAsset::class,
-        BootstrapIcons::class,
     ];
 }

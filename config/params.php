@@ -9,8 +9,10 @@ use Yiisoft\Yii\View\CsrfViewInjection;
 
 return [
     'yii-extension/user-view-bootstrap5' => [
-        'assetClass' => [UserAsset::class],
+        'assetClass' => UserAsset::class,
         'registerAsset' => true,
+        'registerBootstrapAsset' => true,
+        'registerBootstrapIconsAsset' => true,
     ],
 
     'yiisoft/aliases' => [

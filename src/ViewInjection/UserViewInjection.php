@@ -71,10 +71,8 @@ final class UserViewInjection implements ContentParametersInjectionInterface, La
 
     private function registerAsset(): void
     {
-        if ($this->userParameter->isRegisteredAsset()) {
-            $this->assetManager->register(
-                $this->userParameter->getAssetClass(),
-            );
-        }
+        $this->assetManager->register(
+            $this->userParameter->getAssetClass(),
+        );
     }
 }

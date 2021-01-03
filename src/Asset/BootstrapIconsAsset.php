@@ -7,7 +7,7 @@ namespace Yii\Extension\User\View\Asset;
 use Yiisoft\Assets\AssetBundle;
 use Yiisoft\Files\PathMatcher\PathMatcher;
 
-final class BootstrapIcons extends AssetBundle
+final class BootstrapIconsAsset extends AssetBundle
 {
     public ?string $basePath = '@assets';
 

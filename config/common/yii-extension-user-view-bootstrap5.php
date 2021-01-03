@@ -12,6 +12,8 @@ return [
         '__construct()' => [
             $params['yii-extension/user-view-bootstrap5']['assetClass'],
             $params['yii-extension/user-view-bootstrap5']['registerAsset'],
+            $params['yii-extension/user-view-bootstrap5']['registerBootstrapAsset'],
+            $params['yii-extension/user-view-bootstrap5']['registerBootstrapIconsAsset'],
         ],
     ],
 ];
