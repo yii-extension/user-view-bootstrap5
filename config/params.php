@@ -7,11 +7,6 @@ use Yiisoft\Factory\Definitions\Reference;
 use Yiisoft\Yii\View\CsrfViewInjection;
 
 return [
-    'yii-extension/user-view-bootstrap5' => [
-        'registerBootstrapAsset' => true,
-        'registerBootstrapIconsAsset' => true,
-    ],
-
     'yiisoft/aliases' => [
         'aliases' => [
             '@user-view-css' =>  dirname(__DIR__) . '/storage/asset/css',

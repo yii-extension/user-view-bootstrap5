@@ -3,8 +3,6 @@
 declare(strict_types=1);
 
 use Yii\Extension\User\Settings\RepositorySetting;
-use Yii\Extension\User\View\Parameter\UserParameter;
-use Yiisoft\Assets\AssetManager;
 use Yiisoft\Form\FormModelInterface;
 use Yiisoft\Form\Widget\Field;
 use Yiisoft\Form\Widget\Form;
@@ -15,14 +13,12 @@ use Yiisoft\Router\UrlGeneratorInterface;
 use Yiisoft\View\WebView;
 
 /**
- * @var AssetManager $assetManager
  * @var string|null $csrf
  * @var FormModelInterface $data
  * @var Field $field
  * @var Locale $locale
  * @var RepositorySetting $repositorySetting
  * @var UrlGeneratorInterface $urlGenerator
- * @var UserParameter $userParameter
  * @var Translator $translator
  * @var WebView $this
  *
@@ -30,10 +26,6 @@ use Yiisoft\View\WebView;
  */
 
 $this->setTitle('Resend confirmation message');
-
-$assetManager->register(
-    $userParameter->getAssetClass(),
-);
 
 $tab = 0;
 ?>

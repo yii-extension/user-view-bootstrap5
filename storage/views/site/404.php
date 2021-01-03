@@ -14,7 +14,6 @@ use Yiisoft\Translator\Translator;
  */
 
 $this->setTitle('404');
-
 ?>
 
 <h1 class="fw-bold">404</h1>
