@@ -36,7 +36,6 @@ final class UserViewInjection implements ContentParametersInjectionInterface, La
         $this->urlGenerator = $urlGenerator;
         $this->urlMatcher = $urlMatcher;
         $this->user = $user;
-        $this->userParameter = $userParameter;
     }
 
     public function getContentParameters(): array
