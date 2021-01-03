@@ -53,8 +53,7 @@ $tab = 0;
 
                 <?= Html::div(
                     Html::submitButton(
-                        $translator->translate('Login') .
-                        html::tag('i', '', ['class' => 'bi bi-box-arrow-in-right ms-2', 'aria-hidden' => 'true']),
+                        $translator->translate('Login'),
                         [
                             'class' => 'btn btn-primary btn-lg mt-3',
                             'id' => 'login-button',
