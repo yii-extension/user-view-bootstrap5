@@ -31,75 +31,80 @@ use Yiisoft\View\WebView;
 
 $this->setTitle('Login');
 
-$assetManager->register(
-    $userParameter->getAssetClass(),
-);
+$tab = 0;
 ?>
 
-<h1 class="title text-center">
+<h1 class="text-center">
     <?= $translator->translate('Login') ?>
 </h1>
 
-<div class="form-auth-login">
-    <?= Form::widget()
-        ->action($urlGenerator->generate('login'))
-        ->options(
-            [
-                'id' => 'form-auth-login',
-                'class' => 'form-auth-login',
-                'csrf' => $csrf,
-            ]
-        )
-        ->begin() ?>
+<div class="card bg-light mx-auto col-md-5">
+    <div class="card-body">
+        <p class="card-text">
+            <?= Form::widget()
+                ->action($urlGenerator->generate('login'))
+                ->options(
+                    [
+                        'id' => 'form-auth-login',
+                        'csrf' => $csrf,
+                    ]
+                )
+                ->begin() ?>
 
-        <?= $field->config($data, 'login')->textInput(['autofocus' => true, 'tabindex' => '1']) ?>
+                <?= $field->config($data, 'login')->textInput(['autofocus' => true, 'tabindex' => ++$tab]) ?>
 
-        <?= $field->config($data, 'password')->passwordInput(['tabindex' => '2']) ?>
+                <?= $field->config($data, 'password')->passwordInput(['tabindex' => ++$tab]) ?>
 
-        <?= Html::div(
-            Html::submitButton(
-                $translator->translate('Login') .
-                html::tag('i', '', ['class' => 'bi bi-box-arrow-in-right ms-2', 'aria-hidden' => 'true']),
-                [
-                    'class' => 'btn btn-primary btn-lg mt-3',
-                    'id' => 'login-button',
-                    'tabindex' => '3',
-                ]
-            ),
-            ['class' => 'd-grid gap-2']
-        ) ?>
+                <?= Html::div(
+                    Html::submitButton(
+                        $translator->translate('Login') .
+                        html::tag('i', '', ['class' => 'bi bi-box-arrow-in-right ms-2', 'aria-hidden' => 'true']),
+                        [
+                            'class' => 'btn btn-primary btn-lg mt-3',
+                            'id' => 'login-button',
+                            'tabindex' => ++$tab,
+                        ]
+                    ),
+                    ['class' => 'd-grid gap-2']
+                ) ?>
 
-    <?= Form::end() ?>
+            <?= Form::end() ?>
+        </p>
 
-    <hr class="mt-1"/>
+    <?php
+    $items = [];
 
-    <?php if ($repositorySetting->isPasswordRecovery()) : ?>
-        <div class="text-center">
-            <?= Html::a(
+    if ($repositorySetting->isPasswordRecovery()) {
+        $items[] = Html::a(
                 $translator->translate('Forgot password'),
                 $urlGenerator->generate('request'),
-                ['tabindex' => '4'],
-            ) ?>
-        </div>
-    <?php endif ?>
+                ['tabindex' => ++$tab],
+            );
+    }
 
-    <?php if ($repositorySetting->isRegister()) : ?>
-        <div class="text-center">
-            <?= Html::a(
-                $translator->translate('Don\'t have an account - Sign up!'),
-                $urlGenerator->generate('register'),
-                ['tabindex' => '5'],
-            ) ?>
-        </div>
-    <?php endif ?>
+    if ($repositorySetting->isRegister()) {
+        $items[] = Html::a(
+            $translator->translate('Don\'t have an account - Sign up!'),
+            $urlGenerator->generate('register'),
+            ['tabindex' => ++$tab],
+        );
+    }
 
-    <?php if ($repositorySetting->isConfirmation() === true) : ?>
-        <div class="text-center">
-            <?= Html::a(
-                $translator->translate("Didn't receive confirmation message"),
-                $urlGenerator->generate('resend'),
-                ['tabindex' => '6'],
-            ) ?>
-        </div>
-    <?php endif ?>
+    if ($repositorySetting->isConfirmation() === true) {
+        $items[] =  Html::a(
+            $translator->translate("Didn't receive confirmation message"),
+            $urlGenerator->generate('resend'),
+            ['tabindex' => ++$tab],
+        );
+    }
+
+    echo Html::ul(
+        $items,
+        [
+            'class' => 'list-group list-group-flush pt-3',
+            'encode' => false,
+            'itemOptions' => ['class' => 'list-group-item text-center bg-light']
+        ]
+    );
+    ?>
 </div>
