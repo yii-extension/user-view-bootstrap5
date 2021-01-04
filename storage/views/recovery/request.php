@@ -69,7 +69,7 @@ $items = [];
         [
             'class' => 'list-group list-group-flush',
             'encode' => false,
-            'itemOptions' => ['class' => 'list-group-item text-center bg-light']
+            'itemOptions' => ['class' => 'list-group-item text-center']
         ]
     );
     ?>
