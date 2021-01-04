@@ -28,6 +28,7 @@ use Yiisoft\View\WebView;
 $this->setTitle('Resend confirmation message');
 
 $tab = 0;
+$items = [];
 ?>
 
 <div class="card bg-light mx-auto col-md-4">
@@ -59,8 +60,6 @@ $tab = 0;
     </div>
 
     <?php
-    $items = [];
-
     if ($repositorySetting->isRegister()) {
         $items[] = Html::a(
             $translator->translate('Don\'t have an account - Sign up!'),

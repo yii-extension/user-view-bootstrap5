@@ -24,6 +24,7 @@ use Yiisoft\View\WebView;
 $this->setTitle('Recover your password.');
 
 $tab = 0;
+$items = [];
 ?>
 
 <div class="card bg-light mx-auto col-md-4">
@@ -57,8 +58,6 @@ $tab = 0;
     </div>
 
     <?php
-    $items = [];
-
     $items[] = Html::a(
         $translator->translate('Already registered - Sign in!'),
         $urlGenerator->generate('login'),

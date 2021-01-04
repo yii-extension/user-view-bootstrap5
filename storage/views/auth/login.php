@@ -28,6 +28,7 @@ use Yiisoft\View\WebView;
 $this->setTitle('Login');
 
 $tab = 0;
+$items = [];
 ?>
 
 <div class="card bg-light mx-auto col-md-4">
@@ -63,8 +64,6 @@ $tab = 0;
     </div>
 
     <?php
-    $items = [];
-
     if ($repositorySetting->isPasswordRecovery()) {
         $items[] = Html::a(
             $translator->translate('Forgot password'),
