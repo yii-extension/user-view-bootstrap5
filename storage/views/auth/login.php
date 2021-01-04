@@ -48,6 +48,16 @@ $items = [];
 
             <?= $field->config($data, 'password')->passwordInput(['tabindex' => ++$tab]) ?>
 
+            <?= $field->config($data, 'remember')
+                ->checkbox(
+                    [
+                        'class' => 'form-check-input',
+                        'labelOptions' => ['class' => 'form-check-label'],
+                        'tabindex' => ++$tab,
+                    ]
+                )
+                ->enclosedByContainer(true, ['class' => 'form-switch']) ?>
+
             <?= Html::div(
                 Html::submitButton(
                     $translator->translate('Login'),

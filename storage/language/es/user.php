@@ -13,6 +13,7 @@ return [
     'Login' => 'Iniciar session',
     'Password' => 'Contraseña',
     'Please contact us if you think this is a server error. Thank you.' => 'Comuníquese con nosotros si cree que se trata de un error del servidor. Gracias.',
+    'Remember me' => 'Recuérdame',
     'Register' => 'Registrarse',
     'Resend confirmation message' => 'Reenviar mensaje de confirmación.',
     'Reset password' => 'Restablecer la contraseña',

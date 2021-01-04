@@ -13,6 +13,7 @@ return [
     'Login' => 'Anmelden',
     'Password' => 'Kennwort',
     'Please contact us if you think this is a server error. Thank you.' => 'Bitte kontaktieren Sie uns, wenn Sie glauben, dass dies ein Serverfehler ist. Danke.',
+    'Remember me' => 'Angemeldet bleiben',
     'Register' => 'Registrieren',
     'Resend confirmation message' => 'Bestätigungsnachricht erneut senden',
     'Reset password' => 'Kennwort zurücksetzen',
