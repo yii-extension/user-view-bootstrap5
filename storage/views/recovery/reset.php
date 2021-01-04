@@ -28,34 +28,30 @@ $this->setTitle('Reset your password.');
 $tab = 0;
 ?>
 
-<h1 class="text-center">
-    <?= $translator->translate('Reset your password') ?>
-</h1>
-
-<div class="card bg-light mx-auto col-md-5">
+<div class="card bg-light mx-auto col-md-4">
+    <h1 class="card-header text-center"><?= $translator->translate('Reset password') ?></h1>
     <div class="card-body">
-        <p class="card-text">
-            <?= Form::widget()
-                ->action($urlGenerator->generate('reset', ['id' => $id, 'code' => $code]))
-                ->options(
-                    [
-                        'id' => 'form-recovery-reset',
-                        'csrf' => $csrf,
-                    ]
-                )
-                ->begin() ?>
+        <?= Form::widget()
+            ->action($urlGenerator->generate('reset', ['id' => $id, 'code' => $code]))
+            ->options(
+                [
+                    'id' => 'form-recovery-reset',
+                    'csrf' => $csrf,
+                ]
+            )
+            ->begin() ?>
 
-                <?= $field->config($data, 'password')->passwordInput(['autofocus' => true, 'tabindex' => ++$tab]) ?>
+            <?= $field->config($data, 'password')->passwordInput(['autofocus' => true, 'tabindex' => ++$tab]) ?>
 
-                <?= Html::submitButton(
-                    $translator->translate('Continue'),
-                    [
-                        'class' => 'btn btn-primary btn-lg mt-3',
-                        'name' => 'reset-button',
-                        'tabindex' => '2'
-                    ]
-                ) ?>
+            <?= Html::submitButton(
+                $translator->translate('Continue'),
+                [
+                    'class' => 'btn btn-primary btn-lg mt-3',
+                    'name' => 'reset-button',
+                    'tabindex' => '2'
+                ]
+            ) ?>
 
-            <?= Form::end() ?>
-        </p>
+        <?= Form::end() ?>
+    </div>
 </div>

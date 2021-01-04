@@ -28,53 +28,48 @@ use Yiisoft\View\WebView;
 $this->setTitle('Login');
 
 $tab = 0;
+$items = [];
 ?>
 
-<h1 class="text-center">
-    <?= $translator->translate('Login') ?>
-</h1>
-
-<div class="card bg-light mx-auto col-md-5">
+<div class="card bg-light mx-auto col-md-4">
+    <h1 class="card-header text-center"><?= $translator->translate('Login') ?></h1>
     <div class="card-body">
-        <p class="card-text">
-            <?= Form::widget()
-                ->action($urlGenerator->generate('login'))
-                ->options(
+        <?= Form::widget()
+            ->action($urlGenerator->generate('login'))
+            ->options(
+                [
+                    'id' => 'form-auth-login',
+                    'csrf' => $csrf,
+                ]
+            )
+            ->begin() ?>
+
+            <?= $field->config($data, 'login')->textInput(['autofocus' => true, 'tabindex' => ++$tab]) ?>
+
+            <?= $field->config($data, 'password')->passwordInput(['tabindex' => ++$tab]) ?>
+
+            <?= Html::div(
+                Html::submitButton(
+                    $translator->translate('Login'),
                     [
-                        'id' => 'form-auth-login',
-                        'csrf' => $csrf,
+                        'class' => 'btn btn-primary btn-lg my-3',
+                        'id' => 'login-button',
+                        'tabindex' => ++$tab,
                     ]
-                )
-                ->begin() ?>
+                ),
+                ['class' => 'd-grid gap-2']
+            ) ?>
 
-                <?= $field->config($data, 'login')->textInput(['autofocus' => true, 'tabindex' => ++$tab]) ?>
-
-                <?= $field->config($data, 'password')->passwordInput(['tabindex' => ++$tab]) ?>
-
-                <?= Html::div(
-                    Html::submitButton(
-                        $translator->translate('Login'),
-                        [
-                            'class' => 'btn btn-primary btn-lg mt-3',
-                            'id' => 'login-button',
-                            'tabindex' => ++$tab,
-                        ]
-                    ),
-                    ['class' => 'd-grid gap-2']
-                ) ?>
-
-            <?= Form::end() ?>
-        </p>
+        <?= Form::end() ?>
+    </div>
 
     <?php
-    $items = [];
-
     if ($repositorySetting->isPasswordRecovery()) {
         $items[] = Html::a(
-                $translator->translate('Forgot password'),
-                $urlGenerator->generate('request'),
-                ['tabindex' => ++$tab],
-            );
+            $translator->translate('Forgot password'),
+            $urlGenerator->generate('request'),
+            ['tabindex' => ++$tab],
+        );
     }
 
     if ($repositorySetting->isRegister()) {
@@ -96,7 +91,7 @@ $tab = 0;
     echo Html::ul(
         $items,
         [
-            'class' => 'list-group list-group-flush pt-3',
+            'class' => 'list-group list-group-flush',
             'encode' => false,
             'itemOptions' => ['class' => 'list-group-item text-center bg-light']
         ]

@@ -24,55 +24,50 @@ use Yiisoft\View\WebView;
 $this->setTitle('Recover your password.');
 
 $tab = 0;
+$items = [];
 ?>
 
-<h1 class="text-center">
-    <?= $translator->translate('Reset password') ?>
-</h1>
-
-<div class="card bg-light mx-auto col-md-5">
+<div class="card bg-light mx-auto col-md-4">
+    <h1 class="card-header text-center"><?= $translator->translate('Reset password') ?></h1>
     <div class="card-body">
-        <p class="card-text">
-            <?= Form::widget()
-                ->action($urlGenerator->generate('request'))
-                ->options(
+        <?= Form::widget()
+            ->action($urlGenerator->generate('request'))
+            ->options(
+                [
+                    'id' => 'form-recovery-request',
+                    'csrf' => $csrf,
+                ]
+            )
+            ->begin() ?>
+
+            <?= $field->config($data, 'email')->textInput(['autofocus' => true, 'tabindex' => ++$tab]) ?>
+
+            <?= Html::div(
+                Html::submitButton(
+                    $translator->translate('Continue'),
                     [
-                        'id' => 'form-recovery-request',
-                        'csrf' => $csrf,
-                    ]
-                )
-                ->begin() ?>
+                        'class' => 'btn btn-primary btn-lg my-3',
+                        'name' => 'request-button',
+                        'tabindex' => ++$tab
+                    ],
+                ),
+                ['class' => 'd-grid gap-2']
+            ) ?>
 
-                <?= $field->config($data, 'email')->textInput(['autofocus' => true, 'tabindex' => ++$tab]) ?>
-
-                <?= Html::div(
-                    Html::submitButton(
-                        $translator->translate('Continue'),
-                        [
-                            'class' => 'btn btn-primary btn-lg mt-3',
-                            'name' => 'request-button',
-                            'tabindex' => ++$tab
-                        ],
-                    ),
-                    ['class' => 'd-grid gap-2']
-                ) ?>
-
-            <?= Form::end() ?>
-        </p>
+        <?= Form::end() ?>
+    </div>
 
     <?php
-    $items = [];
-
     $items[] = Html::a(
-            $translator->translate('Already registered - Sign in!'),
-            $urlGenerator->generate('login'),
-            ['tabindex' => ++$tab],
-        );
+        $translator->translate('Already registered - Sign in!'),
+        $urlGenerator->generate('login'),
+        ['tabindex' => ++$tab],
+    );
 
     echo Html::ul(
         $items,
         [
-            'class' => 'list-group list-group-flush pt-3',
+            'class' => 'list-group list-group-flush',
             'encode' => false,
             'itemOptions' => ['class' => 'list-group-item text-center bg-light']
         ]
