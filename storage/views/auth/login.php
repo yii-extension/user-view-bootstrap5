@@ -31,7 +31,7 @@ $tab = 0;
 $items = [];
 ?>
 
-<div class="card bg-light mx-auto col-md-4">
+<div class="card shadow mx-auto col-md-4">
     <h1 class="card-header text-center"><?= $translator->translate('Login') ?></h1>
     <div class="card-body">
         <?= Form::widget()
@@ -93,7 +93,7 @@ $items = [];
         [
             'class' => 'list-group list-group-flush',
             'encode' => false,
-            'itemOptions' => ['class' => 'list-group-item text-center bg-light']
+            'itemOptions' => ['class' => 'list-group-item text-center']
         ]
     );
     ?>
