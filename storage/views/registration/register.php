@@ -28,12 +28,11 @@ use Yiisoft\View\WebView;
 $this->setTitle('Register');
 
 $tab = 0;
-
-echo Html::tag('h1', $translator->translate('Login'), ['class' => 'text-center']);
 ?>
 
 <div class="card bg-light mx-auto col-md-4">
     <div class="card-body">
+        <h1 class="card-title text-center"><?= $translator->translate('Register') ?></h1>
         <?= Form::widget()
             ->action($urlGenerator->generate('register'))
             ->options(
