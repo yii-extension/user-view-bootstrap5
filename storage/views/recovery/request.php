@@ -28,8 +28,8 @@ $items = [];
 ?>
 
 <div class="card bg-light mx-auto col-md-4">
+    <h1 class="card-header text-center"><?= $translator->translate('Reset password') ?></h1>
     <div class="card-body">
-        <h1 class="card-title text-center"><?= $translator->translate('Reset password') ?></h1>
         <?= Form::widget()
             ->action($urlGenerator->generate('request'))
             ->options(
