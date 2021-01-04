@@ -56,32 +56,32 @@ $tab = 0;
             ) ?>
 
         <?= Form::end() ?>
+    </div>
 
-        <?php
-        $items = [];
+    <?php
+    $items = [];
 
-        if ($repositorySetting->isRegister()) {
-            $items[] = Html::a(
-                $translator->translate('Don\'t have an account - Sign up!'),
-                $urlGenerator->generate('register'),
-                ['tabindex' => ++$tab],
-            );
-        }
-
-        $items[] =  Html::a(
-            $translator->translate('Already registered - Sign in!'),
-            $urlGenerator->generate('login'),
+    if ($repositorySetting->isRegister()) {
+        $items[] = Html::a(
+            $translator->translate('Don\'t have an account - Sign up!'),
+            $urlGenerator->generate('register'),
             ['tabindex' => ++$tab],
         );
+    }
 
-        echo Html::ul(
-            $items,
-            [
-                'class' => 'list-group list-group-flush',
-                'encode' => false,
-                'itemOptions' => ['class' => 'list-group-item text-center bg-light']
-            ]
-        );
-        ?>
-    </div>
+    $items[] =  Html::a(
+        $translator->translate('Already registered - Sign in!'),
+        $urlGenerator->generate('login'),
+        ['tabindex' => ++$tab],
+    );
+
+    echo Html::ul(
+        $items,
+        [
+            'class' => 'list-group list-group-flush',
+            'encode' => false,
+            'itemOptions' => ['class' => 'list-group-item text-center bg-light']
+        ]
+    );
+    ?>
 </div>

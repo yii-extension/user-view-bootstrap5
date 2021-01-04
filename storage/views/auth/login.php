@@ -60,42 +60,42 @@ $tab = 0;
             ) ?>
 
         <?= Form::end() ?>
-
-        <?php
-        $items = [];
-
-        if ($repositorySetting->isPasswordRecovery()) {
-            $items[] = Html::a(
-                $translator->translate('Forgot password'),
-                $urlGenerator->generate('request'),
-                ['tabindex' => ++$tab],
-            );
-        }
-
-        if ($repositorySetting->isRegister()) {
-            $items[] = Html::a(
-                $translator->translate('Don\'t have an account - Sign up!'),
-                $urlGenerator->generate('register'),
-                ['tabindex' => ++$tab],
-            );
-        }
-
-        if ($repositorySetting->isConfirmation() === true) {
-            $items[] =  Html::a(
-                $translator->translate("Didn't receive confirmation message"),
-                $urlGenerator->generate('resend'),
-                ['tabindex' => ++$tab],
-            );
-        }
-
-        echo Html::ul(
-            $items,
-            [
-                'class' => 'list-group list-group-flush',
-                'encode' => false,
-                'itemOptions' => ['class' => 'list-group-item text-center bg-light']
-            ]
-        );
-        ?>
     </div>
+
+    <?php
+    $items = [];
+
+    if ($repositorySetting->isPasswordRecovery()) {
+        $items[] = Html::a(
+            $translator->translate('Forgot password'),
+            $urlGenerator->generate('request'),
+            ['tabindex' => ++$tab],
+        );
+    }
+
+    if ($repositorySetting->isRegister()) {
+        $items[] = Html::a(
+            $translator->translate('Don\'t have an account - Sign up!'),
+            $urlGenerator->generate('register'),
+            ['tabindex' => ++$tab],
+        );
+    }
+
+    if ($repositorySetting->isConfirmation() === true) {
+        $items[] =  Html::a(
+            $translator->translate("Didn't receive confirmation message"),
+            $urlGenerator->generate('resend'),
+            ['tabindex' => ++$tab],
+        );
+    }
+
+    echo Html::ul(
+        $items,
+        [
+            'class' => 'list-group list-group-flush',
+            'encode' => false,
+            'itemOptions' => ['class' => 'list-group-item text-center bg-light']
+        ]
+    );
+    ?>
 </div>

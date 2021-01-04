@@ -67,24 +67,24 @@ $tab = 0;
             ) ?>
 
         <?= Form::end() ?>
-
-        <?php
-        $items = [];
-
-        $items[] = Html::a(
-            $translator->translate('Already registered - Sign in!'),
-            $urlGenerator->generate('login'),
-            ['tabindex' => ++$tab],
-        );
-
-        echo Html::ul(
-            $items,
-            [
-                'class' => 'list-group list-group-flush',
-                'encode' => false,
-                'itemOptions' => ['class' => 'list-group-item text-center bg-light']
-            ]
-        );
-        ?>
     </div>
+
+    <?php
+    $items = [];
+
+    $items[] = Html::a(
+        $translator->translate('Already registered - Sign in!'),
+        $urlGenerator->generate('login'),
+        ['tabindex' => ++$tab],
+    );
+
+    echo Html::ul(
+        $items,
+        [
+            'class' => 'list-group list-group-flush',
+            'encode' => false,
+            'itemOptions' => ['class' => 'list-group-item text-center bg-light']
+        ]
+    );
+    ?>
 </div>
