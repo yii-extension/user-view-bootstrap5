@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Yii\Extension\User\View\ViewInjection\UserViewInjection;
+use Yii\Extension\User\View\UserViewInjection;
 use Yiisoft\Factory\Definitions\Reference;
 use Yiisoft\Yii\View\CsrfViewInjection;
 
@@ -25,6 +25,7 @@ return [
     'yiisoft/translator' => [
         'path' => '@user-view-language',
         'defaultCategoryName' => 'user',
+        'locale' => 'en',
     ],
 
     'yiisoft/yii-view' => [

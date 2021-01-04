@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Yii\Extension\User\View\ViewInjection;
+namespace Yii\Extension\User\View;
 
 use Yii\Extension\User\Settings\RepositorySetting;
 use Yiisoft\Form\Widget\Field;

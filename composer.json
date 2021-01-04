@@ -19,7 +19,6 @@
         "yiisoft/translator-formatter-intl": "^3.0@dev",
         "yiisoft/translator-message-php": "^3.0@dev",
         "yiisoft/user": "^3.0@dev",
-        "yiisoft/yii-bootstrap5": "^3.0@dev",
         "yiisoft/yii-view": "^3.0@dev"
     },
     "require-dev": {
