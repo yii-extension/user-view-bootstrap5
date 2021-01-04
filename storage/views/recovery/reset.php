@@ -28,7 +28,7 @@ $this->setTitle('Reset your password.');
 $tab = 0;
 ?>
 
-<div class="card bg-light mx-auto col-md-4">
+<div class="card shadow mx-auto col-md-4">
     <h1 class="card-header text-center"><?= $translator->translate('Reset password') ?></h1>
     <div class="card-body">
         <?= Form::widget()
