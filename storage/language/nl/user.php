@@ -13,6 +13,7 @@ return [
     'Login' => 'Login',
     'Password' => 'Wachtwoord',
     'Please contact us if you think this is a server error. Thank you.' => 'Neem contact met ons op als je denkt dat dit een fout is. Dank je.',
+    'Remember me' => 'Herinner mij',
     'Register' => 'Registreren',
     'Resend confirmation message' => 'Bevestigingsmail opnieuw versturen.',
     'Reset password' => 'Wachtwoord resetten',
