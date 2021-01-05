@@ -21,27 +21,23 @@ use Yiisoft\View\WebView;
  * @var Translator $translator
  * @var UrlGeneratorInterface $urlGenerator
  * @var WebView $this
- *
- * @psalm-suppress InvalidScope
  */
 
-$this->setTitle('Login');
+$title = Html::encode($translator->translate('Login'));
+
+/** @psalm-suppress InvalidScope */
+$this->setTitle($title);
 
 $tab = 0;
 $items = [];
 ?>
 
 <div class="card shadow mx-auto col-md-4">
-    <h1 class="card-header text-center"><?= $translator->translate('Login') ?></h1>
+    <h1 class="card-header text-center"><?= $title ?></h1>
     <div class="card-body">
         <?= Form::widget()
             ->action($urlGenerator->generate('login'))
-            ->options(
-                [
-                    'id' => 'form-auth-login',
-                    'csrf' => $csrf,
-                ]
-            )
+            ->options(['csrf' => $csrf, 'id' => 'form-auth-login'])
             ->begin() ?>
 
             <?= $field->config($data, 'login')->textInput(['autofocus' => true, 'tabindex' => ++$tab]) ?>

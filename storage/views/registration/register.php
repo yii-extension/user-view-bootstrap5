@@ -21,27 +21,23 @@ use Yiisoft\View\WebView;
   * @var Translator $translator
   * @var UrlGeneratorInterface $urlGenerator
   * @var WebView $this
-  *
-  * @psalm-suppress InvalidScope
   */
 
-$this->setTitle('Register');
+$title = Html::encode($translator->translate('Register'));
+
+/** @psalm-suppress InvalidScope */
+$this->setTitle($title);
 
 $tab = 0;
 $items = [];
 ?>
 
 <div class="card shadow mx-auto col-md-4">
-    <h1 class="card-header text-center"><?= $translator->translate('Register') ?></h1>
+    <h1 class="card-header text-center"><?= $title ?></h1>
     <div class="card-body">
         <?= Form::widget()
             ->action($urlGenerator->generate('register'))
-            ->options(
-                [
-                    'id' => 'form-registration-register',
-                    'csrf' => $csrf,
-                ]
-            )
+            ->options(['csrf' => $csrf, 'id' => 'form-registration-register'])
             ->begin() ?>
 
             <?= $field->config($data, 'email')->textInput(['autofocus' => true, 'tabindex' => ++$tab]) ?>
@@ -49,12 +45,7 @@ $items = [];
             <?= $field->config($data, 'username')->textInput(['tabindex' => ++$tab]) ?>
 
             <?php if ($repositorySetting->isGeneratingPassword() === false) : ?>
-                <?= $field->config($data, 'password')
-                    ->passwordInput(
-                        [
-                            'tabindex' => ++$tab
-                        ]
-                    ) ?>
+                <?= $field->config($data, 'password')->passwordInput(['tabindex' => ++$tab]) ?>
             <?php endif ?>
 
             <?= Html::div(

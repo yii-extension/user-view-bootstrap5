@@ -21,27 +21,23 @@ use Yiisoft\View\WebView;
  * @var UrlGeneratorInterface $urlGenerator
  * @var Translator $translator
  * @var WebView $this
- *
- * @psalm-suppress InvalidScope
  */
 
-$this->setTitle('Resend confirmation message');
+$title = Html::encode($translator->translate('Resend confirmation message'));
+
+/** @psalm-suppress InvalidScope */
+$this->setTitle($title);
 
 $tab = 0;
 $items = [];
 ?>
 
 <div class="card shadow mx-auto col-md-4">
-    <h1 class="card-header text-center"><?= $translator->translate('Resend confirmation message') ?></h1>
+    <h1 class="card-header text-center"><?= $title ?></h1>
     <div class="card-body">
         <?= Form::widget()
             ->action($urlGenerator->generate('resend'))
-            ->options(
-                [
-                    'id' => 'form-recovery-resend',
-                    'csrf' => $csrf,
-                ]
-            )
+            ->options(['csrf' => $csrf, 'id' => 'form-recovery-resend'])
             ->begin() ?>
 
             <?= $field->config($data, 'email')->textInput(['autofocus' => true, 'tabindex' => ++$tab]) ?>

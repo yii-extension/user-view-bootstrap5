@@ -17,27 +17,23 @@ use Yiisoft\View\WebView;
  * @var Translator $translator
  * @var UrlGeneratorInterface $urlGenerator
  * @var WebView $this
- *
- * @psalm-suppress InvalidScope
  */
 
-$this->setTitle('Recover your password.');
+$title = Html::encode($translator->translate('Reset password'));
+
+/** @psalm-suppress InvalidScope */
+$this->setTitle($title);
 
 $tab = 0;
 $items = [];
 ?>
 
 <div class="card shadow mx-auto col-md-4">
-    <h1 class="card-header text-center"><?= $translator->translate('Reset password') ?></h1>
+    <h1 class="card-header text-center"><?= $title ?></h1>
     <div class="card-body">
         <?= Form::widget()
             ->action($urlGenerator->generate('request'))
-            ->options(
-                [
-                    'id' => 'form-recovery-request',
-                    'csrf' => $csrf,
-                ]
-            )
+            ->options(['csrf' => $csrf, 'id' => 'form-recovery-request'])
             ->begin() ?>
 
             <?= $field->config($data, 'email')->textInput(['autofocus' => true, 'tabindex' => ++$tab]) ?>
