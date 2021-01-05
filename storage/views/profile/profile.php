@@ -58,13 +58,16 @@ $tab = 0;
             <?= $field->config($data, 'bio')
                 ->textarea(['class' => 'form-control textarea', 'rows' => 2,'tabindex' => ++$tab]) ?>
 
-            <?= Html::submitButton(
-                $translator->translate('Save'),
-                [
-                    'class' => 'btn btn-primary btn-lg my-3',
-                    'id' => 'save-profile',
-                    'tabindex' => ++$tab,
-                ]
+            <?= Html::div(
+                Html::submitButton(
+                    $translator->translate('Save'),
+                    [
+                        'class' => 'btn btn-primary btn-lg my-3',
+                        'id' => 'save-profile',
+                        'tabindex' => ++$tab,
+                    ]
+                ),
+                ['class' => 'd-grid gap-2']
             ) ?>
 
         <?= Form::end() ?>
