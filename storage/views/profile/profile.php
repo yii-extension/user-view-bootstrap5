@@ -61,7 +61,7 @@ $tab = 0;
             <?= Html::submitButton(
                 $translator->translate('Save'),
                 [
-                    'class' => 'button is-block is-info is-fullwidth',
+                    'class' => 'btn btn-primary btn-lg my-3',
                     'id' => 'save-profile',
                     'tabindex' => ++$tab,
                 ]
