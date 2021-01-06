@@ -13,6 +13,7 @@
     "prefer-stable": true,
     "require": {
         "php": "^7.4|^8.0",
+        "yii-extension/alert-message-bootstrap5": "@dev",
         "yii-extension/user-settings": "^1.0@dev",
         "yiisoft/form": "^1.0@dev",
         "yiisoft/router": "^3.0@dev",
