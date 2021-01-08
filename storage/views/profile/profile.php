@@ -52,7 +52,7 @@ $tab = 0;
             <?= $field->config($data, 'timezone')
                 ->dropDownList(
                     ArrayHelper::map($timezone->getAll(), 'timezone', 'name'),
-                    ['tabindex' => ++$tab]
+                    ['class' => 'form-select', 'tabindex' => ++$tab]
                 ) ?>
 
             <?= $field->config($data, 'bio')
