@@ -8,7 +8,7 @@ use Yii\Extension\User\Settings\RepositorySetting;
 use Yiisoft\Form\Widget\Field;
 use Yiisoft\Router\UrlGeneratorInterface;
 use Yiisoft\Router\UrlMatcherInterface;
-use Yiisoft\Translator\Translator;
+use Yiisoft\Translator\TranslatorInterface;
 use Yiisoft\User\User;
 use Yiisoft\Yii\View\ContentParametersInjectionInterface;
 use Yiisoft\Yii\View\LayoutParametersInjectionInterface;
@@ -17,7 +17,7 @@ final class UserViewInjection implements ContentParametersInjectionInterface, La
 {
     private Field $field;
     private RepositorySetting $repositorySetting;
-    private Translator $translator;
+    private TranslatorInterface $translator;
     private UrlGeneratorInterface $urlGenerator;
     private UrlMatcherInterface $urlMatcher;
     private User $user;
@@ -25,7 +25,7 @@ final class UserViewInjection implements ContentParametersInjectionInterface, La
     public function __construct(
         Field $field,
         RepositorySetting $repositorySetting,
-        Translator $translator,
+        TranslatorInterface $translator,
         UrlGeneratorInterface $urlGenerator,
         UrlMatcherInterface $urlMatcher,
         User $user
