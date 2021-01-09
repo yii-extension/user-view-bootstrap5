@@ -29,9 +29,10 @@ $tab = 0;
 $items = [];
 ?>
 
+<?= AlertMessage::widget() ?>
+
 <div class="card shadow mx-auto col-md-4">
     <h1 class="card-header text-center"><?= $title ?></h1>
-    <?= AlertMessage::widget() ?>
     <div class="card-body">
         <?= Form::widget()
             ->action($urlGenerator->generate('request'))
