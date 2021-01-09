@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Yii\Extension\User\Settings\RepositorySetting;
+use Yii\Extension\Widget\AlertMessage;
 use Yiisoft\Form\FormModelInterface;
 use Yiisoft\Form\Widget\Field;
 use Yiisoft\Form\Widget\Form;
@@ -34,6 +35,7 @@ $items = [];
 
 <div class="card shadow mx-auto col-md-4">
     <h1 class="card-header text-center"><?= $title ?></h1>
+    <?= AlertMessage::widget() ?>
     <div class="card-body">
         <?= Form::widget()
             ->action($urlGenerator->generate('register'))
