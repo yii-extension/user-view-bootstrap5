@@ -32,8 +32,6 @@ $tab = 0;
 $items = [];
 ?>
 
-<?= AlertMessage::widget() ?>
-
 <div class="card shadow mx-auto col-md-4">
     <h1 class="card-header text-center"><?= $title ?></h1>
     <div class="card-body">
