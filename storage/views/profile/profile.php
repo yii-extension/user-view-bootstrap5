@@ -24,7 +24,7 @@ use Yiisoft\View\WebView;
  * @var WebView $this
  */
 
-$title = Html::encode($translator->translate('Profile'));
+$title = Html::encode($translator->translate('Profile', [], 'user-view'));
 
 /** @psalm-suppress InvalidScope */
 $this->setTitle($title);
@@ -63,7 +63,7 @@ $tab = 0;
 
             <?= Html::div(
                 Html::submitButton(
-                    $translator->translate('Save'),
+                    $translator->translate('Save', [], 'user-view'),
                     [
                         'class' => 'btn btn-primary btn-lg my-3',
                         'id' => 'save-profile',

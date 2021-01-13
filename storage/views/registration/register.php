@@ -23,7 +23,7 @@ use Yiisoft\View\WebView;
   * @var WebView $this
   */
 
-$title = Html::encode($translator->translate('Register'));
+$title = Html::encode($translator->translate('Register', [], 'user-view'));
 
 /** @psalm-suppress InvalidScope */
 $this->setTitle($title);
@@ -50,7 +50,7 @@ $items = [];
 
             <?= Html::div(
                 Html::submitButton(
-                    $translator->translate('Register'),
+                    $translator->translate('Register', [], 'user-view'),
                     [
                         'class' => 'btn btn-primary btn-lg my-3', 'id' => 'register-button', 'tabindex' => ++$tab
                     ]
@@ -63,7 +63,7 @@ $items = [];
 
     <?php
     $items[] = Html::a(
-        $translator->translate('Already registered - Sign in!'),
+        $translator->translate('Already registered - Sign in!', [], 'user-view'),
         $urlGenerator->generate('login'),
         ['tabindex' => ++$tab],
     );

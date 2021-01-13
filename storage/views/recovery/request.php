@@ -19,7 +19,7 @@ use Yiisoft\View\WebView;
  * @var WebView $this
  */
 
-$title = Html::encode($translator->translate('Reset password'));
+$title = Html::encode($translator->translate('Request your password', [], 'user-view'));
 
 /** @psalm-suppress InvalidScope */
 $this->setTitle($title);
@@ -40,7 +40,7 @@ $items = [];
 
             <?= Html::div(
                 Html::submitButton(
-                    $translator->translate('Continue'),
+                    $translator->translate('Continue', [], 'user-view'),
                     [
                         'class' => 'btn btn-primary btn-lg my-3',
                         'name' => 'request-button',
@@ -55,7 +55,7 @@ $items = [];
 
     <?php
     $items[] = Html::a(
-        $translator->translate('Already registered - Sign in!'),
+        $translator->translate('Already registered - Sign in!', [], 'user-view'),
         $urlGenerator->generate('login'),
         ['tabindex' => ++$tab],
     );

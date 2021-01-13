@@ -23,7 +23,7 @@ use Yiisoft\View\WebView;
  * @var WebView $this
  */
 
-$title = Html::encode($translator->translate('Resend confirmation message'));
+$title = Html::encode($translator->translate('Resend confirmation message', [], 'user-view'));
 
 /** @psalm-suppress InvalidScope */
 $this->setTitle($title);
@@ -44,7 +44,7 @@ $items = [];
 
             <?= Html::div(
                 Html::submitButton(
-                    $translator->translate('Continue'),
+                    $translator->translate('Continue', [], 'user-view'),
                     [
                         'class' => 'btn btn-primary btn-lg my-3', 'name' => 'resend-button', 'tabindex' => ++$tab
                     ]
@@ -58,14 +58,14 @@ $items = [];
     <?php
     if ($repositorySetting->isRegister()) {
         $items[] = Html::a(
-            $translator->translate('Don\'t have an account - Sign up!'),
+            $translator->translate('Don\'t have an account - Sign up!', [], 'user-view'),
             $urlGenerator->generate('register'),
             ['tabindex' => ++$tab],
         );
     }
 
     $items[] =  Html::a(
-        $translator->translate('Already registered - Sign in!'),
+        $translator->translate('Already registered - Sign in!', [], 'user-view'),
         $urlGenerator->generate('login'),
         ['tabindex' => ++$tab],
     );

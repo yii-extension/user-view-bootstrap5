@@ -24,7 +24,7 @@ use Yiisoft\View\WebView;
  * @var WebView $this
  */
 
-$title = Html::encode($translator->translate('Login'));
+$title = Html::encode($translator->translate('Log in', [], 'user-view'));
 
 /** @psalm-suppress InvalidScope */
 $this->setTitle($title);
@@ -59,7 +59,7 @@ $items = [];
 
             <?= Html::div(
                 Html::submitButton(
-                    $translator->translate('Login'),
+                    $translator->translate('Log in', [], 'user-view'),
                     [
                         'class' => 'btn btn-primary btn-lg my-3',
                         'id' => 'login-button',
@@ -75,7 +75,7 @@ $items = [];
     <?php
     if ($repositorySetting->isPasswordRecovery()) {
         $items[] = Html::a(
-            $translator->translate('Forgot password'),
+            $translator->translate('Forgot password', [], 'user-view'),
             $urlGenerator->generate('request'),
             ['tabindex' => ++$tab],
         );
@@ -83,7 +83,7 @@ $items = [];
 
     if ($repositorySetting->isRegister()) {
         $items[] = Html::a(
-            $translator->translate('Don\'t have an account - Sign up!'),
+            $translator->translate('Don\'t have an account - Sign up!', [], 'user-view'),
             $urlGenerator->generate('register'),
             ['tabindex' => ++$tab],
         );
@@ -91,7 +91,7 @@ $items = [];
 
     if ($repositorySetting->isConfirmation() === true) {
         $items[] =  Html::a(
-            $translator->translate("Didn't receive confirmation message"),
+            $translator->translate('Didn\'t receive confirmation message', [], 'user-view'),
             $urlGenerator->generate('resend'),
             ['tabindex' => ++$tab],
         );

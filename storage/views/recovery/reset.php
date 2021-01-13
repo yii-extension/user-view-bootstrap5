@@ -21,7 +21,7 @@ use Yiisoft\View\WebView;
  * @var WebView $this
  */
 
-$title = Html::encode($translator->translate('Reset password'));
+$title = Html::encode($translator->translate('Reset your password', [], 'user-view'));
 
 /** @psalm-suppress InvalidScope */
 $this->setTitle($title);
@@ -40,7 +40,7 @@ $tab = 0;
             <?= $field->config($data, 'password')->passwordInput(['autofocus' => true, 'tabindex' => ++$tab]) ?>
 
             <?= Html::submitButton(
-                $translator->translate('Continue'),
+                $translator->translate('Continue', [], 'user-view'),
                 [
                     'class' => 'btn btn-primary btn-lg mt-3',
                     'name' => 'reset-button',
