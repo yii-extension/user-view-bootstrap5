@@ -20,7 +20,7 @@ use Yiisoft\View\WebView;
   * @var WebView $this
   */
 
-$title = Html::encode($translator->translate('Account setting', [], 'user-view'));
+$title = Html::encode($translator->translate('Change email address', [], 'user-view'));
 
 /** @psalm-suppress InvalidScope */
 $this->setTitle($title);
