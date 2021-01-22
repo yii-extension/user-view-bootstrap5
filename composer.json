@@ -17,6 +17,7 @@
         "yii-extension/user-settings": "^1.0@dev",
         "yiisoft/form": "^1.0@dev",
         "yiisoft/router": "^3.0@dev",
+        "yiisoft/router-fastroute": "^3.0@dev",
         "yiisoft/translator": "^3.0@dev",
         "yiisoft/user": "^3.0@dev",
         "yiisoft/yii-view": "^3.0@dev"

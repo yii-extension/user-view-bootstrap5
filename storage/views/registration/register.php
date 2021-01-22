@@ -7,7 +7,6 @@ use Yiisoft\Form\FormModelInterface;
 use Yiisoft\Form\Widget\Field;
 use Yiisoft\Form\Widget\Form;
 use Yiisoft\Html\Html;
-use Yiisoft\I18n\Locale;
 use Yiisoft\Router\UrlGeneratorInterface;
 use Yiisoft\Translator\Translator;
 use Yiisoft\View\WebView;
@@ -16,7 +15,6 @@ use Yiisoft\View\WebView;
   * @var string|null $csrf
   * @var FormModelInterface $data
   * @var Field $field
-  * @var Locale $locale
   * @var RepositorySetting $repositorySetting
   * @var Translator $translator
   * @var UrlGeneratorInterface $urlGenerator
