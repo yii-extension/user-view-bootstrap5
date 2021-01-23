@@ -32,8 +32,8 @@ $tab = 0;
     <h1 class="card-header text-center"><?= $title ?></h1>
         <div class="card-body">
             <?= Form::widget()
-                ->action($urlGenerator->generate('account'))
-                ->options(['csrf' => $csrf, 'id' => 'form-setting-account'])
+                ->action($urlGenerator->generate('email/change'))
+                ->options(['csrf' => $csrf, 'id' => 'form-email-change'])
                 ->begin() ?>
 
                 <?= $field->config($data, 'email')->textInput(['autofocus' => true, 'tabindex' => ++$tab]) ?>
@@ -43,7 +43,7 @@ $tab = 0;
                         $translator->translate('Save', [], 'user-view'),
                         [
                             'class' => 'btn btn-primary btn-lg my-3',
-                            'id' => 'save-account',
+                            'id' => 'save-email-change',
                             'tabindex' => ++$tab,
                         ]
                     ),
