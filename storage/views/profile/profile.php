@@ -59,7 +59,7 @@ $tab = 0;
                 ) ?>
 
             <?= $field->config($data, 'bio')
-                ->textarea(['class' => 'form-control textarea', 'rows' => 2,'tabindex' => ++$tab]) ?>
+                ->textarea(['class' => 'form-control textarea', 'rows' => 2, 'tabindex' => ++$tab]) ?>
 
             <?= Html::div(
                 Html::submitButton(
@@ -70,7 +70,7 @@ $tab = 0;
                         'tabindex' => ++$tab,
                     ]
                 ),
-                ['class' => 'd-grid gap-2']
+                ['class' => 'd-grid gap-2', 'encode' => false]
             ) ?>
 
         <?= Form::end() ?>

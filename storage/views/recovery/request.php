@@ -47,7 +47,7 @@ $items = [];
                         'tabindex' => ++$tab
                     ],
                 ),
-                ['class' => 'd-grid gap-2']
+                ['class' => 'd-grid gap-2', 'encode' => false]
             ) ?>
 
         <?= Form::end() ?>
@@ -64,8 +64,7 @@ $items = [];
         $items,
         [
             'class' => 'list-group list-group-flush',
-            'encode' => false,
-            'itemOptions' => ['class' => 'list-group-item text-center']
+            'itemOptions' => ['class' => 'list-group-item text-center', 'encode' => false]
         ]
     );
     ?>
