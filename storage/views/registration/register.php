@@ -53,7 +53,7 @@ $items = [];
                         'class' => 'btn btn-primary btn-lg my-3', 'id' => 'register-button', 'tabindex' => ++$tab
                     ]
                 ),
-                ['class' => 'd-grid gap-2', 'encode' => false]
+                ['class' => 'd-grid gap-2', 'encode' => false],
             ) ?>
 
         <?= Form::end() ?>
@@ -70,7 +70,7 @@ $items = [];
         $items,
         [
             'class' => 'list-group list-group-flush',
-            'itemOptions' => ['class' => 'list-group-item text-center', 'encode' => false]
+            'itemOptions' => ['class' => 'list-group-item text-center', 'encode' => false],
         ]
     );
     ?>

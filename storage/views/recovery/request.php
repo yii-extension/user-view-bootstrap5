@@ -64,7 +64,7 @@ $items = [];
         $items,
         [
             'class' => 'list-group list-group-flush',
-            'itemOptions' => ['class' => 'list-group-item text-center', 'encode' => false]
+            'itemOptions' => ['class' => 'list-group-item text-center', 'encode' => false],
         ]
     );
     ?>

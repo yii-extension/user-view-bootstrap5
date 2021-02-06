@@ -47,7 +47,7 @@ $tab = 0;
                             'tabindex' => ++$tab,
                         ]
                     ),
-                    ['class' => 'd-grid gap-2', 'encode' => false]
+                    ['class' => 'd-grid gap-2', 'encode' => false],
                 ) ?>
 
             <?= Form::end() ?>
