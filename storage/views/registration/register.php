@@ -46,32 +46,27 @@ $items = [];
                 <?= $field->config($data, 'password')->passwordInput(['tabindex' => ++$tab]) ?>
             <?php endif ?>
 
-            <?= Html::div(
-                Html::submitButton(
+            <div class='d-grid gap-2'>
+                <?= Html::submitButton(
                     $translator->translate('Register', [], 'user-view'),
                     [
                         'class' => 'btn btn-primary btn-lg my-3', 'id' => 'register-button', 'tabindex' => ++$tab
                     ]
-                ),
-                ['class' => 'd-grid gap-2', 'encode' => false],
-            ) ?>
+                ) ?>
+            </div>
 
         <?= Form::end() ?>
     </div>
 
-    <?php
-    $items[] = Html::a(
+    <?php $items[] = Html::a(
         $translator->translate('Already registered - Sign in!', [], 'user-view'),
         $urlGenerator->generate('login'),
-        ['tabindex' => ++$tab],
-    );
+        ['class' => 'text-center', 'tabindex' => ++$tab],
+    ) ?>
 
-    echo Html::ul(
-        $items,
-        [
-            'class' => 'list-group list-group-flush',
-            'itemOptions' => ['class' => 'list-group-item text-center', 'encode' => false],
-        ]
-    );
-    ?>
+    <ul class='list-group list-group-flush'>
+        <?php foreach ($items as $item) : ?>
+            <li class='list-group-item text-center'><?= $item ?></li>
+        <?php endforeach ?>
+    </ul>
 </div>

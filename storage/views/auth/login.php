@@ -55,52 +55,47 @@ $items = [];
                 )
                 ->enclosedByContainer(true, ['class' => 'form-switch']) ?>
 
-            <?= Html::div(
-                Html::submitButton(
+            <div class='d-grid gap-2'>
+                <?= Html::submitButton(
                     $translator->translate('Log in', [], 'user-view'),
                     [
                         'class' => 'btn btn-primary btn-lg my-3',
                         'id' => 'login-button',
                         'tabindex' => ++$tab,
                     ]
-                ),
-                ['class' => 'd-grid gap-2', 'encode' => false],
-            ) ?>
+                ) ?>
+            </div>
 
         <?= Form::end() ?>
     </div>
 
-    <?php
-    if ($repositorySetting->isPasswordRecovery()) {
-        $items[] = Html::a(
+    <?php if ($repositorySetting->isPasswordRecovery()) : ?>
+        <?php $items[] = Html::a(
             $translator->translate('Forgot password', [], 'user-view'),
             $urlGenerator->generate('request'),
             ['tabindex' => ++$tab],
-        );
-    }
+        ) ?>
+    <?php endif ?>
 
-    if ($repositorySetting->isRegister()) {
-        $items[] = Html::a(
+    <?php if ($repositorySetting->isRegister()) : ?>
+        <?php $items[] = Html::a(
             $translator->translate('Don\'t have an account - Sign up!', [], 'user-view'),
             $urlGenerator->generate('register'),
             ['tabindex' => ++$tab],
-        );
-    }
+        ) ?>
+    <?php endif ?>
 
-    if ($repositorySetting->isConfirmation() === true) {
-        $items[] =  Html::a(
+    <?php if ($repositorySetting->isConfirmation() === true) : ?>
+        <?php $items[] = Html::a(
             $translator->translate('Didn\'t receive confirmation message', [], 'user-view'),
             $urlGenerator->generate('resend'),
             ['tabindex' => ++$tab],
-        );
-    }
+        ) ?>
+    <?php endif ?>
 
-    echo Html::ul(
-        $items,
-        [
-            'class' => 'list-group list-group-flush',
-            'itemOptions' => ['class' => 'list-group-item text-center', 'encode' => false],
-        ]
-    );
-    ?>
+    <ul class='list-group list-group-flush'>
+        <?php foreach ($items as $item) : ?>
+            <li class='list-group-item text-center'><?= $item ?></li>
+        <?php endforeach ?>
+    </ul>
 </div>
