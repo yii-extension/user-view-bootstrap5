@@ -9,7 +9,7 @@ use Yiisoft\Form\Widget\Field;
 use Yiisoft\Router\UrlGeneratorInterface;
 use Yiisoft\Router\UrlMatcherInterface;
 use Yiisoft\Translator\TranslatorInterface;
-use Yiisoft\User\User;
+use Yiisoft\User\CurrentUser;
 use Yiisoft\Yii\View\ContentParametersInjectionInterface;
 use Yiisoft\Yii\View\LayoutParametersInjectionInterface;
 
@@ -20,7 +20,7 @@ final class UserViewInjection implements ContentParametersInjectionInterface, La
     private TranslatorInterface $translator;
     private UrlGeneratorInterface $urlGenerator;
     private UrlMatcherInterface $urlMatcher;
-    private User $user;
+    private CurrentUser $user;
 
     public function __construct(
         Field $field,
@@ -28,7 +28,7 @@ final class UserViewInjection implements ContentParametersInjectionInterface, La
         TranslatorInterface $translator,
         UrlGeneratorInterface $urlGenerator,
         UrlMatcherInterface $urlMatcher,
-        User $user
+        CurrentUser $user
     ) {
         $this->field = $field;
         $this->repositorySetting = $repositorySetting;
