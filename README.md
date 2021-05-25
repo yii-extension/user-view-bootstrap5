@@ -26,6 +26,10 @@ The code is statically analyzed with [Psalm](https://psalm.dev/). To run static 
 ./vendor/bin/psalm
 ```
 
+### Support the project
+
+[![Open Collective](https://img.shields.io/badge/Open%20Collective-sponsor-7eadf1?logo=open%20collective&logoColor=7eadf1&labelColor=555555)](https://opencollective.com/yiisoft)
+
 ### License
 
 The View for extension user with bootstrap5 css framework for Yii Packages is free software. It is released under the terms of the BSD License.
