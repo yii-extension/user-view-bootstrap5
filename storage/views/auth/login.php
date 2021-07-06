@@ -2,21 +2,29 @@
 
 declare(strict_types=1);
 
-use Yii\Extension\User\Settings\RepositorySetting;
-use Yii\Extension\Widget\AlertMessage;
+use Yii\Extension\Asset\Bootstrap5\Bootstrap5ValidationAsset;
+use Yii\Extension\Simple\Forms\Field;
+use Yii\Extension\Simple\Forms\Form;
+use Yii\Extension\User\Settings\ModuleSettings;
+use Yiisoft\Assets\AssetManager;
 use Yiisoft\Form\FormModelInterface;
-use Yiisoft\Form\Widget\Field;
-use Yiisoft\Form\Widget\Form;
 use Yiisoft\Html\Html;
-use Yiisoft\Translator\Translator;
+use Yiisoft\Html\Tag\A;
+use Yiisoft\Html\Tag\Button;
+use Yiisoft\Html\Tag\Li;
+use Yiisoft\Html\Tag\Ul;
 use Yiisoft\Router\UrlGeneratorInterface;
+use Yiisoft\Session\Flash\Flash;
+use Yiisoft\Translator\Translator;
 use Yiisoft\View\WebView;
 
 /**
+ * @var AssetManager $assetManager
  * @var string|null $csrf
- * @var FormModelInterface $data
  * @var Field $field
- * @var RepositorySetting $repositorySetting
+ * @var Flash $flash
+ * @var FormModelInterface $data
+ * @var ModuleSettings $setting
  * @var Translator $translator
  * @var UrlGeneratorInterface $urlGenerator
  * @var WebView $this
@@ -24,78 +32,73 @@ use Yiisoft\View\WebView;
 
 $title = Html::encode($translator->translate('Log in', [], 'user-view'));
 
-/** @psalm-suppress InvalidScope */
 $this->setTitle($title);
 
+$csrf = $csrf ?? '';
 $tab = 0;
 $items = [];
 ?>
 
-<?= AlertMessage::widget() ?>
-
 <div class="card shadow mx-auto col-md-4">
-    <h1 class="card-header text-center"><?= $title ?></h1>
-    <div class="card-body">
+    <h1 class="card-header fw-normal h3 text-center"><?= $title ?></h1>
+    <div class="card-body mt-2">
         <?= Form::widget()
             ->action($urlGenerator->generate('login'))
-            ->options(['csrf' => $csrf, 'id' => 'form-auth-login'])
+            ->attributes(['novalidate' => true])
+            ->csrf($csrf)
+            ->id('form-auth-login')
             ->begin() ?>
 
-            <?= $field->config($data, 'login')->textInput(['autofocus' => true, 'tabindex' => ++$tab]) ?>
+            <?= $field->config($data, 'login')->input(['autofocus' => true, 'tabindex' => ++$tab]) ?>
 
             <?= $field->config($data, 'password')->passwordInput(['tabindex' => ++$tab]) ?>
 
-            <?= $field->config($data, 'remember')
-                ->checkbox(
-                    [
-                        'class' => 'form-check-input',
-                        'labelOptions' => ['class' => 'form-check-label'],
-                        'tabindex' => ++$tab,
-                    ]
-                )
-                ->enclosedByContainer(true, ['class' => 'form-switch']) ?>
-
-            <div class='d-grid gap-2'>
-                <?= Html::submitButton(
-                    $translator->translate('Log in', [], 'user-view'),
-                    [
-                        'class' => 'btn btn-primary btn-lg my-3',
-                        'id' => 'login-button',
-                        'tabindex' => ++$tab,
-                    ]
-                ) ?>
+            <div class="d-grid gap-2">
+                <?= Button::tag()
+                    ->attributes(['tabindex' => ++$tab])
+                    ->class('btn btn-primary btn-lg mt-3')
+                    ->content($translator->translate('Log in', [], 'user-view'))
+                    ->id('login-button')
+                    ->type('submit') ?>
             </div>
-
         <?= Form::end() ?>
     </div>
 
-    <?php if ($repositorySetting->isPasswordRecovery()) : ?>
-        <?php $items[] = Html::a(
-            $translator->translate('Forgot password', [], 'user-view'),
-            $urlGenerator->generate('request'),
-            ['tabindex' => ++$tab],
-        ) ?>
+    <?php if ($moduleSettings->isPasswordRecovery()) : ?>
+        <?php $items[] = Li::tag()
+            ->class('border-0 list-group-item text-center')
+            ->content(
+                A::tag()
+                    ->attributes(['tabindex' => ++$tab])
+                    ->content($translator->translate('Forgot password', [], 'user-view'))
+                    ->url($urlGenerator->generate('request'))
+            )
+        ?>
     <?php endif ?>
 
-    <?php if ($repositorySetting->isRegister()) : ?>
-        <?php $items[] = Html::a(
-            $translator->translate('Don\'t have an account - Sign up!', [], 'user-view'),
-            $urlGenerator->generate('register'),
-            ['tabindex' => ++$tab],
-        ) ?>
+    <?php if ($moduleSettings->isRegister()) : ?>
+        <?php $items[] = Li::tag()
+            ->class('border-0 list-group-item text-center')
+            ->content(
+                A::tag()
+                    ->attributes(['tabindex' => ++$tab])
+                    ->content($translator->translate('Don\'t have an account - Sign up!', [], 'user-view'))
+                ->url($urlGenerator->generate('register'))
+            )
+        ?>
     <?php endif ?>
 
-    <?php if ($repositorySetting->isConfirmation() === true) : ?>
-        <?php $items[] = Html::a(
-            $translator->translate('Didn\'t receive confirmation message', [], 'user-view'),
-            $urlGenerator->generate('resend'),
-            ['tabindex' => ++$tab],
-        ) ?>
+    <?php if ($moduleSettings->isConfirmation() === true) : ?>
+        <?php $items[] = Li::tag()
+            ->class('border-0 list-group-item text-center')
+            ->content(
+                A::tag()
+                    ->attributes(['tabindex' => ++$tab])
+                    ->content($translator->translate('Didn\'t receive confirmation message', [], 'user-view'))
+                    ->url($urlGenerator->generate('resend'))
+            )
+        ?>
     <?php endif ?>
 
-    <ul class='list-group list-group-flush'>
-        <?php foreach ($items as $item) : ?>
-            <li class='list-group-item text-center'><?= $item ?></li>
-        <?php endforeach ?>
-    </ul>
+    <?= Ul::tag()->class('card-footer list-group list-group-flush mb-2')->items(...$items) ?>
 </div>
