@@ -17,8 +17,8 @@ use Yiisoft\View\WebView;
 
  /**
   * @var string|null $csrf
-  * @var ModelInterface $data
   * @var Field $field
+  * @var ModelInterface $model
   * @var ModuleSettings $moduleSettings
   * @var Translator $translator
   * @var UrlGeneratorInterface $urlGenerator
@@ -44,12 +44,12 @@ $tab = 0;
             ->id('form-registration-register')
             ->begin() ?>
 
-            <?= $field->config($data, 'email')->input(['autofocus' => true, 'tabindex' => ++$tab]) ?>
+            <?= $field->config($model, 'email')->input(['autofocus' => true, 'tabindex' => ++$tab]) ?>
 
-            <?= $field->config($data, 'username')->input(['tabindex' => ++$tab]) ?>
+            <?= $field->config($model, 'username')->input(['tabindex' => ++$tab]) ?>
 
             <?php if ($moduleSettings->isGeneratingPassword() === false) : ?>
-                <?= $field->config($data, 'password')->passwordInput(['tabindex' => ++$tab]) ?>
+                <?= $field->config($model, 'password')->passwordInput(['tabindex' => ++$tab]) ?>
             <?php endif ?>
 
             <div class="d-grid gap-2">

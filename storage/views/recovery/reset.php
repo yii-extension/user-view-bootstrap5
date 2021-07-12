@@ -14,8 +14,8 @@ use Yiisoft\View\WebView;
 /**
  * @var string|null $csrf
  * @var string $code
- * @var ModelInterface $data
  * @var Field $field
+ * @var ModelInterface $model
  * @var string $id
  * @var Translator $translator
  * @var UrlGeneratorInterface $urlGenerator
@@ -41,7 +41,7 @@ $tab = 0;
             ->id('form-recovery-reset')
             ->begin() ?>
 
-            <?= $field->config($data, 'password')->passwordInput(['autofocus' => true, 'tabindex' => ++$tab]) ?>
+            <?= $field->config($model, 'password')->passwordInput(['autofocus' => true, 'tabindex' => ++$tab]) ?>
 
             <div class='d-grid gap-2'>
                 <?= Button::tag()

@@ -16,8 +16,8 @@ use Yiisoft\View\WebView;
 
 /**
  * @var string|null $csrf
- * @var ModelInterface $data
  * @var Field $field
+ * @var ModelInterface $model
  * @var Translator $translator
  * @var UrlGeneratorInterface $urlGenerator
  * @var WebView $this
@@ -42,7 +42,7 @@ $tab = 0;
             ->id('form-recovery-request')
             ->begin() ?>
 
-            <?= $field->config($data, 'email')->input(['autofocus' => true, 'tabindex' => ++$tab]) ?>
+            <?= $field->config($model, 'email')->input(['autofocus' => true, 'tabindex' => ++$tab]) ?>
 
             <div class='d-grid gap-2'>
                 <?= Button::tag()

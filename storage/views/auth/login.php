@@ -17,8 +17,8 @@ use Yiisoft\View\WebView;
 
 /**
  * @var string|null $csrf
- * @var ModelInterface $data
  * @var Field $field
+ * @var ModelInterface $model
  * @var ModuleSettings $moduleSettings
  * @var Translator $translator
  * @var UrlGeneratorInterface $urlGenerator
@@ -45,9 +45,9 @@ $items = [];
             ->id('form-auth-login')
             ->begin() ?>
 
-            <?= $field->config($data, 'login')->input(['autofocus' => true, 'tabindex' => ++$tab]) ?>
+            <?= $field->config($model, 'login')->input(['autofocus' => true, 'tabindex' => ++$tab]) ?>
 
-            <?= $field->config($data, 'password')->passwordInput(['tabindex' => ++$tab]) ?>
+            <?= $field->config($model, 'password')->passwordInput(['tabindex' => ++$tab]) ?>
 
             <div class="d-grid gap-2">
                 <?= Button::tag()

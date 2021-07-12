@@ -15,8 +15,8 @@ use Yiisoft\View\WebView;
 
 /**
  * @var string|null $csrf
- * @var ModelInterface $data
  * @var Field $field
+ * @var ModelInterface $model
  * @var Translator $translator
  * @var UrlGeneratorInterface $urlGenerator
  * @var WebView $this
@@ -43,22 +43,22 @@ $tab = 0;
             ->id('form-profile-profile')
             ->begin() ?>
 
-            <?= $field->config($data, 'name')->input(['autofocus' => true, 'tabindex' => ++$tab]) ?>
+            <?= $field->config($model, 'name')->input(['autofocus' => true, 'tabindex' => ++$tab]) ?>
 
-            <?= $field->config($data, 'publicEmail')->input(['autofocus' => true, 'tabindex' => ++$tab]) ?>
+            <?= $field->config($model, 'publicEmail')->input(['autofocus' => true, 'tabindex' => ++$tab]) ?>
 
-            <?= $field->config($data, 'website')->input(['autofocus' => true, 'tabindex' => ++$tab]) ?>
+            <?= $field->config($model, 'website')->input(['autofocus' => true, 'tabindex' => ++$tab]) ?>
 
-            <?= $field->config($data, 'location')->input(['autofocus' => true, 'tabindex' => ++$tab]) ?>
+            <?= $field->config($model, 'location')->input(['autofocus' => true, 'tabindex' => ++$tab]) ?>
 
-            <?= $field->config($data, 'timezone')
+            <?= $field->config($model, 'timezone')
                 ->dropDownList(
                     ArrayHelper::map($timezone->getAll(), 'timezone', 'name'),
                     ['class' => 'form-select', 'tabindex' => ++$tab]
                 ) ?>
 
             <?= $field
-                ->config($data, 'bio')
+                ->config($model, 'bio')
                 ->textArea(['class' => 'form-control textarea', 'rows' => 2, 'tabindex' => ++$tab]) ?>
 
             <div class='d-grid gap-2'>

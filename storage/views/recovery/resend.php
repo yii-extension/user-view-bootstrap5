@@ -18,7 +18,7 @@ use Yiisoft\View\WebView;
 /**
  * @var string|null $csrf
  * @var Field $field
- * @var ModelInterface $data
+ * @var ModelInterface $model
  * @var ModuleSettings $moduleSettings
  * @var Translator $translator
  * @var UrlGeneratorInterface $urlGenerator
@@ -45,7 +45,7 @@ $items = [];
             ->id('form-recovery-resend')
             ->begin() ?>
 
-            <?= $field->config($data, 'email')->input(['autofocus' => true, 'tabindex' => ++$tab]) ?>
+            <?= $field->config($model, 'email')->input(['autofocus' => true, 'tabindex' => ++$tab]) ?>
 
             <div class='d-grid gap-2'>
                 <?= Button::tag()
@@ -66,6 +66,7 @@ $items = [];
                     ->attributes(['tabindex' => ++$tab])
                     ->content($translator->translate('Don\'t have an account - Sign up!', [], 'user-view'))
                 ->url($urlGenerator->generate('register'))
+                ->render()
             )
             ->encode(false)
         ?>
@@ -78,6 +79,7 @@ $items = [];
                 ->attributes(['tabindex' => ++$tab])
                 ->content($translator->translate('Already registered - Sign in!', [], 'user-view'))
                 ->url($urlGenerator->generate('login'))
+                ->render()
         )
         ->encode(false)
     ?>
