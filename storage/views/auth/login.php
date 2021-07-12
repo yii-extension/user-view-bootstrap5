@@ -2,29 +2,24 @@
 
 declare(strict_types=1);
 
-use Yii\Extension\Asset\Bootstrap5\Bootstrap5ValidationAsset;
 use Yii\Extension\Simple\Forms\Field;
 use Yii\Extension\Simple\Forms\Form;
+use Yii\Extension\Simple\Model\ModelInterface;
 use Yii\Extension\User\Settings\ModuleSettings;
-use Yiisoft\Assets\AssetManager;
-use Yiisoft\Form\FormModelInterface;
 use Yiisoft\Html\Html;
 use Yiisoft\Html\Tag\A;
 use Yiisoft\Html\Tag\Button;
 use Yiisoft\Html\Tag\Li;
 use Yiisoft\Html\Tag\Ul;
 use Yiisoft\Router\UrlGeneratorInterface;
-use Yiisoft\Session\Flash\Flash;
 use Yiisoft\Translator\Translator;
 use Yiisoft\View\WebView;
 
 /**
- * @var AssetManager $assetManager
  * @var string|null $csrf
+ * @var ModelInterface $data
  * @var Field $field
- * @var Flash $flash
- * @var FormModelInterface $data
- * @var ModuleSettings $setting
+ * @var ModuleSettings $moduleSettings
  * @var Translator $translator
  * @var UrlGeneratorInterface $urlGenerator
  * @var WebView $this
@@ -32,6 +27,7 @@ use Yiisoft\View\WebView;
 
 $title = Html::encode($translator->translate('Log in', [], 'user-view'));
 
+/** @psalm-suppress InvalidScope */
 $this->setTitle($title);
 
 $csrf = $csrf ?? '';
@@ -72,6 +68,7 @@ $items = [];
                     ->attributes(['tabindex' => ++$tab])
                     ->content($translator->translate('Forgot password', [], 'user-view'))
                     ->url($urlGenerator->generate('request'))
+                    ->render()
             )
         ?>
     <?php endif ?>
@@ -83,7 +80,8 @@ $items = [];
                 A::tag()
                     ->attributes(['tabindex' => ++$tab])
                     ->content($translator->translate('Don\'t have an account - Sign up!', [], 'user-view'))
-                ->url($urlGenerator->generate('register'))
+                    ->url($urlGenerator->generate('register'))
+                    ->render()
             )
         ?>
     <?php endif ?>
@@ -96,6 +94,7 @@ $items = [];
                     ->attributes(['tabindex' => ++$tab])
                     ->content($translator->translate('Didn\'t receive confirmation message', [], 'user-view'))
                     ->url($urlGenerator->generate('resend'))
+                    ->render()
             )
         ?>
     <?php endif ?>

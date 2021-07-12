@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use Yii\Extension\Simple\Forms\Field;
 use Yii\Extension\Simple\Forms\Form;
-use Yiisoft\Form\FormModelInterface;
+use Yii\Extension\Simple\Model\ModelInterface;
 use Yiisoft\Html\Html;
 use Yiisoft\Html\Tag\A;
 use Yiisoft\Html\Tag\Button;
@@ -16,7 +16,7 @@ use Yiisoft\View\WebView;
 
 /**
  * @var string|null $csrf
- * @var FormModelInterface $data
+ * @var ModelInterface $data
  * @var Field $field
  * @var Translator $translator
  * @var UrlGeneratorInterface $urlGenerator
@@ -25,11 +25,11 @@ use Yiisoft\View\WebView;
 
 $title = Html::encode($translator->translate('Request your password', [], 'user-view'));
 
+/** @psalm-suppress InvalidScope */
 $this->setTitle($title);
 
 $csrf = $csrf ?? '';
 $tab = 0;
-$items = '';
 ?>
 
 <div class="card shadow mx-auto col-md-4">
@@ -62,6 +62,7 @@ $items = '';
                 ->attributes(['tabindex' => ++$tab])
                 ->content($translator->translate('Already registered - Sign in!', [], 'user-view'))
                 ->url($urlGenerator->generate('login'))
+                ->render()
         )
     ?>
 

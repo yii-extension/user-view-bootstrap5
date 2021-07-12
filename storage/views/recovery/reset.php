@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use Yii\Extension\Simple\Forms\Field;
 use Yii\Extension\Simple\Forms\Form;
-use Yiisoft\Form\FormModelInterface;
+use Yii\Extension\Simple\Model\ModelInterface;
 use Yiisoft\Html\Html;
 use Yiisoft\Html\Tag\Button;
 use Yiisoft\Router\UrlGeneratorInterface;
@@ -12,9 +12,9 @@ use Yiisoft\Translator\Translator;
 use Yiisoft\View\WebView;
 
 /**
- * @var string $code
  * @var string|null $csrf
- * @var FormModelInterface $data
+ * @var string $code
+ * @var ModelInterface $data
  * @var Field $field
  * @var string $id
  * @var Translator $translator
@@ -24,6 +24,7 @@ use Yiisoft\View\WebView;
 
 $title = Html::encode($translator->translate('Reset your password', [], 'user-view'));
 
+/** @psalm-suppress InvalidScope */
 $this->setTitle($title);
 
 $csrf = $csrf ?? '';
@@ -40,7 +41,7 @@ $tab = 0;
             ->id('form-recovery-reset')
             ->begin() ?>
 
-            <?= $field->config($data, 'password')->input(['autofocus' => true, 'tabindex' => ++$tab], 'password') ?>
+            <?= $field->config($data, 'password')->passwordInput(['autofocus' => true, 'tabindex' => ++$tab]) ?>
 
             <div class='d-grid gap-2'>
                 <?= Button::tag()

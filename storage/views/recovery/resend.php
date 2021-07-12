@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 use Yii\Extension\Simple\Forms\Field;
 use Yii\Extension\Simple\Forms\Form;
+use Yii\Extension\Simple\Model\ModelInterface;
 use Yii\Extension\User\Settings\ModuleSettings;
-use Yiisoft\Form\FormModelInterface;
 use Yiisoft\Html\Html;
 use Yiisoft\Html\Tag\A;
 use Yiisoft\Html\Tag\Button;
@@ -18,7 +18,7 @@ use Yiisoft\View\WebView;
 /**
  * @var string|null $csrf
  * @var Field $field
- * @var FormModelInterface $data
+ * @var ModelInterface $data
  * @var ModuleSettings $moduleSettings
  * @var Translator $translator
  * @var UrlGeneratorInterface $urlGenerator
@@ -27,6 +27,7 @@ use Yiisoft\View\WebView;
 
 $title = Html::encode($translator->translate('Resend confirmation message', [], 'user-view'));
 
+/** @psalm-suppress InvalidScope */
 $this->setTitle($title);
 
 $csrf = $csrf ?? '';

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 use Yii\Extension\Simple\Forms\Field;
 use Yii\Extension\Simple\Forms\Form;
+use Yii\Extension\Simple\Model\ModelInterface;
 use Yii\Extension\User\Helper\TimeZone;
 use Yiisoft\Arrays\ArrayHelper;
-use Yiisoft\Form\FormModelInterface;
 use Yiisoft\Html\Html;
 use Yiisoft\Html\Tag\Button;
 use Yiisoft\Router\UrlGeneratorInterface;
@@ -15,7 +15,7 @@ use Yiisoft\View\WebView;
 
 /**
  * @var string|null $csrf
- * @var FormModelInterface $data
+ * @var ModelInterface $data
  * @var Field $field
  * @var Translator $translator
  * @var UrlGeneratorInterface $urlGenerator
@@ -24,6 +24,7 @@ use Yiisoft\View\WebView;
 
 $title = Html::encode($translator->translate('Profile', [], 'user-view'));
 
+/** @psalm-suppress InvalidScope */
 $this->setTitle($title);
 
 $timezone = new TimeZone();
