@@ -64,6 +64,7 @@ $tab = 0;
                 ->url($urlGenerator->generate('login'))
                 ->render()
         )
+        ->encode(false)
     ?>
 
     <?= Ul::tag()->class('card-footer list-group list-group-flush mb-2 ')->items($items) ?>

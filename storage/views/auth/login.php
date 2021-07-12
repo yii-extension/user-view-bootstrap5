@@ -70,6 +70,7 @@ $items = [];
                     ->url($urlGenerator->generate('request'))
                     ->render()
             )
+            ->encode(false)
         ?>
     <?php endif ?>
 
@@ -83,6 +84,7 @@ $items = [];
                     ->url($urlGenerator->generate('register'))
                     ->render()
             )
+            ->encode(false)
         ?>
     <?php endif ?>
 
@@ -96,6 +98,7 @@ $items = [];
                     ->url($urlGenerator->generate('resend'))
                     ->render()
             )
+            ->encode(false)
         ?>
     <?php endif ?>
 

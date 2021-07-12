@@ -67,6 +67,7 @@ $items = [];
                     ->content($translator->translate('Don\'t have an account - Sign up!', [], 'user-view'))
                 ->url($urlGenerator->generate('register'))
             )
+            ->encode(false)
         ?>
     <?php endif ?>
 
@@ -78,6 +79,7 @@ $items = [];
                 ->content($translator->translate('Already registered - Sign in!', [], 'user-view'))
                 ->url($urlGenerator->generate('login'))
         )
+        ->encode(false)
     ?>
 
     <?= Ul::tag()->class('card-footer list-group list-group-flush mb-2')->items(...$items) ?>
